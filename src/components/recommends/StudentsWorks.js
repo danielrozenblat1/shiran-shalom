@@ -9,6 +9,7 @@ import result4 from "../../images/שירן שלום עבודות תלמידות 
 import result5 from "../../images/שירן שלום עבודות תלמידות 5.png";
 import result6 from "../../images/שירן שלום עבודות תלמידות 6.png";
 import result7 from "../../images/שירן שלום עבודות תלמידות 7.png";
+import Button from '../WAbutton/Button';
 
 
 
@@ -54,7 +55,7 @@ const StudentsWorks = () => {
           </div>
         </div>
       </div>
-
+<Button text="תלחצי כאן כדי לשמוע ממני"/>
     </>
   );
 };
