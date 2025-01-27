@@ -13,8 +13,13 @@ import recomend from "../images/שירן שלום המלצות.png"
 import Button from "../components/WAbutton/Button"
 import { ChevronDown } from "lucide-react"
 import StudentsWorks from "../components/recommends/StudentsWorks"
+import VideoGallery from "../components/studioVideos/StudioVideos"
+import video1 from "../videos/שירן שלום סרטון המלצה 1.mp4"
+import video2 from "../videos/שירן שלום סרטון המלצה 2.mp4"
 const SecondScreen=()=>{
-
+  const videos=[
+    {src:video1,alt:"שירן שלום סרטון המלצה"}, {src:video2,alt:"שירן שלום סרטון המלצה 2"}
+  ]
 
     return <>
     <div className={styles.title} id="קורס">לא הגעת לכאן בטעות</div>
@@ -55,6 +60,7 @@ const SecondScreen=()=>{
 <AboutMe/>
 <div className={styles.title}>שבסוף התהליך דיברו ככה:</div>
 <div className={styles.center}><img className={styles.image} src={recomend} alt="שירן שלום המלצות"/></div>
+<VideoGallery videos={videos}/>
 <Button text="שמעתי מספיק, בואי נדבר"/>
 <div className={styles.title}>בואי נדבר תכלס על מה שאת הולכת לעבור אצלי</div>
 <div className={styles.arrowContainer}>

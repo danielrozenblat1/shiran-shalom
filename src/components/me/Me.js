@@ -5,6 +5,7 @@ import shiranImage from "../../images/שירן שלום תדמיתית.png";
 import Recommends from '../recommends/Recommends';
 
 const AboutMe = () => {
+  
   return (
     <>
       <div className={styles.header} id="מי אני">בואי נכיר</div>
