@@ -2,19 +2,22 @@ import React from 'react';
 import styles from './Students.module.css';
 
 // Import your images
-import result1 from "../../images/שירן שלום עבודות 1.png";
-import result2 from "../../images/שירן שלום עבודות 2.png";
-import result3 from "../../images/שירן שלום עבודות 3.png";
-import result4 from "../../images/שירן שלום עבודות 4.png";
-import result5 from "../../images/שירן שלום עבודות 8.png";
+import result1 from "../../images/שירן שלום עבודות תלמידות 1.png";
+import result2 from "../../images/שירן שלום עבודות תלמידות 2.png";
+import result3 from "../../images/שירן שלום עבודות תלמידות 3.png";
+import result4 from "../../images/שירן שלום עבודות תלמידות 4.png";
+import result5 from "../../images/שירן שלום עבודות תלמידות 5.png";
+import result6 from "../../images/שירן שלום עבודות תלמידות 6.png";
+import result7 from "../../images/שירן שלום עבודות תלמידות 7.png";
 
 
 
 
 
-const Students = () => {
+
+const StudentsWorks = () => {
   const images = [
-    result1, result2, result3, result4,result5
+    result1, result2, result3, result4,result5 ,result6,result7
   ];
 
   return (
@@ -56,4 +59,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default StudentsWorks;

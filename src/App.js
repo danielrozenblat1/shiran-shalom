@@ -9,6 +9,7 @@ import ByMe from './components/ByMe/ByMe';
 import ThirdScreen from './screens/ThirdScreen';
 import ForthScreen from './screens/ForthScreen';
 import AboutMe from './components/me/Me';
+import FifthScreen from './screens/FifthScreen';
 
 function App() {
   return <>
@@ -20,6 +21,7 @@ function App() {
 
 <CourseSuitability/>
 <ThirdScreen/>
+<FifthScreen/>
 <ByMe/>
   </>
 }

@@ -12,6 +12,7 @@ import Students from "../components/recommends/Students"
 import recomend from "../images/שירן שלום המלצות.png"
 import Button from "../components/WAbutton/Button"
 import { ChevronDown } from "lucide-react"
+import StudentsWorks from "../components/recommends/StudentsWorks"
 const SecondScreen=()=>{
 
 
@@ -47,9 +48,9 @@ const SecondScreen=()=>{
 </div>
 <div className={styles.description}>וברגע שתיישמי את כל השלושה</div>
 <div className={styles.title}>תגיעי לתוצאות</div>
-{/* תוצאות של תלמידות */}
+
 <Students/>
-{/* תוצאות של תלמידות */}
+<StudentsWorks/>
 
 <AboutMe/>
 <div className={styles.title}>שבסוף התהליך דיברו ככה:</div>
