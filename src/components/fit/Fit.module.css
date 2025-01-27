@@ -1,0 +1,437 @@
+/* Container with luxury glass effect */
+.suitabilityContainer {
+  margin: 2rem 0;
+  direction: rtl;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 35px 28px;
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(186, 140, 151, 0.15);
+}
+
+.header {
+  font-family: 'Assistant', sans-serif;
+  font-size: 2.5rem;
+  margin: 2% auto;
+  text-align: center;
+  direction: rtl;
+  background: linear-gradient(135deg, #d4a5ae 0%, #9e7d84 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Elegant corner effects with lighter colors */
+.suitabilityContainer::before,
+.suitabilityContainer::after {
+  content: '';
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(
+      45deg,
+      #d4a5ae,
+      #e0e0e0
+  ) 1;
+  transition: all 0.4s ease;
+}
+
+.suitabilityContainer::before {
+  top: 0;
+  right: 0;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.suitabilityContainer::after {
+  bottom: 0;
+  left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+/* Secondary corners with matching lighter gradient */
+.suitabilityContainer > div::before,
+.suitabilityContainer > div::after {
+  content: '';
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(
+      45deg,
+      #d4a5ae,
+      #e0e0e0
+  ) 1;
+  transition: all 0.4s ease;
+}
+
+.suitabilityContainer > div::before {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.suitabilityContainer > div::after {
+  bottom: 0;
+  right: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+/* Enhanced hover animations */
+.suitabilityContainer:hover::before,
+.suitabilityContainer:hover::after,
+.suitabilityContainer:hover > div::before,
+.suitabilityContainer:hover > div::after {
+  width: 75px;
+  height: 75px;
+  border-width: 3px;
+  filter: drop-shadow(0 0 5px rgba(212, 165, 174, 0.3));
+}
+
+/* Row Layout */
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 3rem;
+  position: relative;
+}
+
+/* Title Styles */
+.title {
+  font-family: Assistant;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #7e6469;
+  text-align: right;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* List Styles */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  font-family: AssistantR;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.listItem:hover {
+  transform: translateX(-5px);
+}
+
+/* Enhanced Circle Design */
+.circle {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #d4a5ae 0%, #9e7d84 100%);
+  box-shadow: 0 4px 15px rgba(212, 165, 174, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+  border-radius: 50%;
+}
+
+.listItem:hover .circle {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(212, 165, 174, 0.4);
+}
+
+/* Icons with enhanced styling */
+.checkmark::before {
+  content: '✓';
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.crossmark::before {
+  content: '×';
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Text with enhanced styling */
+.text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  flex: 1;
+  text-align: right;
+  transition: color 0.3s ease;
+}
+
+.listItem:hover .text {
+  color: #7e6469;
+}
+
+/* Enhanced Entry Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.suitabilityContainer {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+/* Below 350px */
+@media screen and (max-width: 349px) {
+  .suitabilityContainer {
+    max-width: calc(90% - 30px);
+    padding: 20px 15px;
+  }
+  
+  .header {
+    font-size: 1.8rem;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+  }
+  
+  .circle {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+  }
+  
+  .text {
+    font-size: 0.9rem;
+  }
+  
+  .row {
+    gap: 1.5rem;
+  }
+
+  .suitabilityContainer::before,
+  .suitabilityContainer::after,
+  .suitabilityContainer > div::before,
+  .suitabilityContainer > div::after {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .suitabilityContainer:hover::before,
+  .suitabilityContainer:hover::after,
+  .suitabilityContainer:hover > div::before,
+  .suitabilityContainer:hover > div::after {
+    width: 55px;
+    height: 55px;
+  }
+
+  .listItem {
+    margin-bottom: 1rem;
+  }
+  
+  .listItem:hover {
+    transform: translateX(-3px);
+  }
+}
+
+/* 350px - 450px */
+@media screen and (min-width: 350px) and (max-width: 450px) {
+  .suitabilityContainer {
+    max-width: calc(90% - 40px);
+    padding: 25px 20px;
+  }
+  
+  .header {
+    font-size: 2rem;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .circle {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+  }
+
+  .suitabilityContainer::before,
+  .suitabilityContainer::after,
+  .suitabilityContainer > div::before,
+  .suitabilityContainer > div::after {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .suitabilityContainer:hover::before,
+  .suitabilityContainer:hover::after,
+  .suitabilityContainer:hover > div::before,
+  .suitabilityContainer:hover > div::after {
+    width: 55px;
+    height: 55px;
+  }
+
+  .listItem {
+    margin-bottom: 1rem;
+  }
+  
+  .listItem:hover {
+    transform: translateX(-3px);
+  }
+}
+
+/* 450px - 550px */
+@media screen and (min-width: 451px) and (max-width: 550px) {
+  .suitabilityContainer {
+    max-width: calc(90% - 50px);
+    padding: 30px 25px;
+  }
+  
+  .header {
+    font-size: 2.2rem;
+  }
+
+  .suitabilityContainer::before,
+  .suitabilityContainer::after,
+  .suitabilityContainer > div::before,
+  .suitabilityContainer > div::after {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .suitabilityContainer:hover::before,
+  .suitabilityContainer:hover::after,
+  .suitabilityContainer:hover > div::before,
+  .suitabilityContainer:hover > div::after {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* 550px - 650px */
+@media screen and (min-width: 551px) and (max-width: 650px) {
+  .suitabilityContainer {
+    max-width: 500px;
+  }
+  
+  .row {
+    gap: 2rem;
+  }
+
+  .suitabilityContainer::before,
+  .suitabilityContainer::after,
+  .suitabilityContainer > div::before,
+  .suitabilityContainer > div::after {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .suitabilityContainer:hover::before,
+  .suitabilityContainer:hover::after,
+  .suitabilityContainer:hover > div::before,
+  .suitabilityContainer:hover > div::after {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* 650px - 750px */
+@media screen and (min-width: 651px) and (max-width: 750px) {
+  .suitabilityContainer {
+    max-width: 600px;
+  }
+  
+  .header {
+    font-size: 2.3rem;
+  }
+}
+
+/* 750px - 850px */
+@media screen and (min-width: 751px) and (max-width: 850px) {
+  .suitabilityContainer {
+    max-width: 700px;
+  }
+  
+  .row {
+    gap: 2.5rem;
+  }
+}
+
+/* 850px - 950px */
+@media screen and (min-width: 851px) and (max-width: 950px) {
+  .suitabilityContainer {
+    max-width: 800px;
+  }
+  
+  .header {
+    font-size: 2.4rem;
+  }
+}
+
+/* 950px - 1050px */
+@media screen and (min-width: 951px) and (max-width: 1050px) {
+  .suitabilityContainer {
+    max-width: 900px;
+  }
+}
+
+/* 1050px - 1150px */
+@media screen and (min-width: 1051px) and (max-width: 1150px) {
+  .suitabilityContainer {
+    max-width: 1000px;
+  }
+  
+  .row {
+    gap: 3rem;
+  }
+}
+
+/* 1150px - 1250px */
+@media screen and (min-width: 1151px) and (max-width: 1250px) {
+  .suitabilityContainer {
+    max-width: 1100px;
+  }
+  
+  .header {
+    font-size: 2.5rem;
+  }
+}
