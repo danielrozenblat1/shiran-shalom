@@ -8,7 +8,9 @@ import result3 from "../../images/שירן שלום עבודות תלמידות 
 import result4 from "../../images/שירן שלום עבודות תלמידות 4.png";
 import result5 from "../../images/שירן שלום עבודות תלמידות 5.png";
 import result6 from "../../images/שירן שלום עבודות תלמידות 6.png";
-import result7 from "../../images/שירן שלום עבודות תלמידות 7.png";
+
+import result8 from "../../images/שירן שלום עבודות תלמידות 9.png";
+import result10 from "../../images/שירן שלום עבודות תלמידות 10.png";
 import Button from '../WAbutton/Button';
 
 
@@ -18,7 +20,7 @@ import Button from '../WAbutton/Button';
 
 const StudentsWorks = () => {
   const images = [
-    result1, result2, result3, result4,result5 ,result6,result7
+    result8, result2, result3,result10, result4,result5 ,result6
   ];
 
   return (

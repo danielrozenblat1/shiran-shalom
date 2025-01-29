@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Course.module.css';
+import kit from "../../images/שירן שלום ערכה.png"
 import { 
   Clock, 
   GraduationCap, 
@@ -136,7 +137,16 @@ const Syllabus = () => {
           <div className={styles.kitItem}>פינצטה</div>
           <div className={styles.kitItem}>שפריצר מים לניקוי הריסים</div>
         </div>
+        <div className={styles.kitImageContainer}>
+        <img 
+          src={kit}
+          alt="ערכת הקורס"
+          className={styles.kitImage}
+        />
+      </div>
       </section>
+  
+ 
     </div>
 
   </>

@@ -7,6 +7,7 @@ import result2 from "../../images/שירן שלום עבודות 2.png";
 import result3 from "../../images/שירן שלום עבודות 3.png";
 import result4 from "../../images/שירן שלום עבודות 4.png";
 import result5 from "../../images/שירן שלום עבודות 8.png";
+import result6 from "../../images/שירן שלום עבודות 9.png";
 
 
 
@@ -14,7 +15,7 @@ import result5 from "../../images/שירן שלום עבודות 8.png";
 
 const Students = () => {
   const images = [
-    result1, result2, result3, result4,result5
+    result1,result6,  result3, result4,result5
   ];
 
   return (

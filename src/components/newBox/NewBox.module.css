@@ -6,11 +6,10 @@
   margin: 2% auto;
   padding: 25px;
   background: linear-gradient(
-    135deg,
-    rgba(163, 148, 133, 0.4) 0%,
-    rgba(255, 250, 245, 0.25) 35%,
-    rgba(214, 194, 176, 0.5) 100%
-  );
+    160deg,
+    rgb(252, 243, 243) 0%,
+    rgba(91, 60, 66, 0.451) 100%
+);
   border-radius: 35px 12px 40px 20px;
   position: relative;
   overflow: hidden;

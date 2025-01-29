@@ -25,9 +25,9 @@ const SecondScreen=()=>{
     <div className={styles.title} id="קורס">לא הגעת לכאן בטעות</div>
     <div className={styles.description}>אם את כאן זה אומר ששמעת כבר על תחום הביוטי ועל כל היתרונות שהוא מביא איתו</div>
 <div className={styles.row}>
-<IconTextComponent text="להתפרנס מהתחום שאת הכי אוהבת בכל יום מחדש" imageSrc={learn}/>
-    <IconTextComponent text="להכניס עשרות אלפי שקלים כל חודש" imageSrc={shiran}/>
-    <IconTextComponent text="לשלוט בזמן שלך ולעבוד בזמנים שלך" imageSrc={time}/>
+<IconTextComponent text="להתפרנס מהתחום שאת הכי אוהבת בכל יום מחדש" imageSrc={shiran}/>
+    <IconTextComponent text="להכניס עשרות אלפי שקלים כל חודש" imageSrc={time}/>
+    <IconTextComponent text="לשלוט בזמן שלך ולעבוד בזמנים שלך" imageSrc={learn}/>
 
 </div>
 <div className={styles.descriptionSpecial}>אני יכולה להגיד לך בפה מלא</div>

@@ -131,6 +131,25 @@
       0 4px 12px rgba(113, 79, 77, 0.1),
       inset 0 0 8px rgba(255, 255, 255, 0.8);
   }
+  .kitImageContainer {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    padding: 1rem;
+  }
+  
+  .kitImage {
+    border-radius: 15px;
+    width:200px;
+    height:200px;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(113, 79, 77, 0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .kitImage:hover {
+    transform: scale(1.02);
+  }
   
   /* Below 350px */
   @media screen and (max-width: 349px) {

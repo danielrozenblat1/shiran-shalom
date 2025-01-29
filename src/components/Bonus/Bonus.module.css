@@ -6,9 +6,9 @@
     flex-direction: column;
     margin: 2% auto;
     background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.97),
-        rgba(180, 131, 140, 0.03)
+        160deg,
+        rgba(255,255,255,1) 0%,
+        rgba(144, 108, 115, 0.6) 100%
     );
     border-radius: 20px;
     padding: 12px 24px;
