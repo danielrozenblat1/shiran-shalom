@@ -1,0 +1,483 @@
+.container {
+  direction: rtl;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.serviceCard {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 30px rgba(129, 96, 91, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(129, 96, 91, 0.1);
+  transition: all 0.4s ease;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #81605B, #a17c77);
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 40px rgba(129, 96, 91, 0.12),
+    0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(129, 96, 91, 0.1);
+}
+
+.serviceTitle {
+  font-family: 'Assistant', sans-serif;
+  color: #81605B;
+  font-size: 2.2rem;
+  font-family: "Assistant";
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.serviceDescription {
+  color: #333333;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-family: 'AssistantR', sans-serif;
+  text-align: right;
+}
+
+.mainImageContainer {
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  position: relative;
+  width:70%;
+  aspect-ratio: 9/9;
+  margin:2% auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mainImageContainer:hover .mainImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(129, 96, 91, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mainImageContainer:hover .imageOverlay {
+  opacity: 1;
+}
+
+.sectionTitle {
+  color: #81605B;
+  font-size: 1.4rem;
+  font-family: "Assistant";
+  margin: 2rem 0 1rem;
+  padding-right: 1rem;
+  position: relative;
+}
+
+.sectionTitle::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 1.2em;
+  background: #81605B;
+  border-radius: 2px;
+}
+
+.resultImages {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.resultImageContainer {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.resultImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.resultImageContainer:hover .resultImage {
+  transform: scale(1.05);
+}
+
+.resultImageContainer:hover .imageOverlay {
+  opacity: 1;
+}
+
+.ageIndicator {
+  background: rgba(129, 96, 91, 0.1);
+  color: #81605B;
+  font-size: 1.2rem;
+  font-family: "Assistant";
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  border: 2px solid rgba(129, 96, 91, 0.2);
+}
+
+.contentSection {
+  margin: 2rem 0;
+}
+
+/* סגנונות חדשים ליתרונות */
+.benefitsSection {
+  margin: 2rem 0;
+  background: rgba(129, 96, 91, 0.03);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(129, 96, 91, 0.1);
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.benefitItem {
+  color: #333333;
+  padding: 0.5rem 2rem 0.5rem 0;
+  position: relative;
+  font-family: 'AssistantR', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.benefitItem::before {
+  content: '✧';
+  color: #81605B;
+  position: absolute;
+  right: 0;
+  font-size: 1.2rem;
+}
+
+/* סגנונות מעודכנים לתהליך */
+.processSection {
+  margin: 2rem 0;
+}
+
+.processList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.processStep {
+  background: rgba(129, 96, 91, 0.03);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(129, 96, 91, 0.1);
+  transition: all 0.3s ease;
+}
+
+.processStep:hover {
+  background: rgba(129, 96, 91, 0.05);
+  transform: translateX(-5px);
+}
+
+.stepTitle {
+  color: #81605B;
+  font-size: 1.2rem;
+  font-family: "Assistant";
+  margin-bottom: 0.5rem;
+}
+
+.stepDescription {
+  color: #333333;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'AssistantR', sans-serif;
+}
+
+.decorativeLine {
+  height: 1px;
+  background: linear-gradient(to right, rgba(129, 96, 91, 0.2), transparent);
+  margin: 2rem 0;
+}
+
+.idealSection {
+  margin: 2rem 0;
+}
+
+.priceSection {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.priceTag {
+  background: linear-gradient(135deg, #81605B, #a17c77);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-size: 1.3rem;
+  font-family: "Assistant";
+  display: inline-block;
+}
+
+.ctaSection {
+  margin-top: 2rem;
+}
+
+.ctaButton {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #81605B, #a17c77);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Assistant', sans-serif;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(129, 96, 91, 0.3);
+}
+
+/* Custom Scrollbar */
+.serviceCard::-webkit-scrollbar {
+  width: 8px;
+}
+
+.serviceCard::-webkit-scrollbar-track {
+  background: rgba(129, 96, 91, 0.05);
+  border-radius: 4px;
+}
+
+.serviceCard::-webkit-scrollbar-thumb {
+  background: rgba(129, 96, 91, 0.2);
+  border-radius: 4px;
+}
+
+.serviceCard::-webkit-scrollbar-thumb:hover {
+  background: rgba(129, 96, 91, 0.3);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 349px) {
+  .servicesGrid {
+    width: 95%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 1.8rem;
+  }
+}
+
+/* 350-450 */
+@media (min-width: 350px) and (max-width: 450px) {
+  .servicesGrid {
+    width: 92%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 1.9rem;
+  }
+}
+
+/* 450-550 */
+@media (min-width: 451px) and (max-width: 550px) {
+  .servicesGrid {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 2rem;
+  }
+}
+
+/* 550-650 */
+@media (min-width: 551px) and (max-width: 650px) {
+  .servicesGrid {
+    width: 85%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 2rem;
+  }
+}
+
+/* 650-750 */
+@media (min-width: 651px) and (max-width: 750px) {
+  .servicesGrid {
+    width: 85%;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 2rem;
+  }
+}
+
+/* 750-850 */
+@media (min-width: 751px) and (max-width: 850px) {
+  .servicesGrid {
+    width: 90%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 2rem;
+  }
+}
+
+/* 850-950 */
+@media (min-width: 851px) and (max-width: 950px) {
+  .servicesGrid {
+    width: 92%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 2rem;
+  }
+}
+
+/* 950-1050 */
+@media (min-width: 951px) and (max-width: 1050px) {
+  .servicesGrid {
+    width: 94%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.2rem;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 2rem;
+  }
+}
+
+/* 1050-1150 */
+@media (min-width: 1051px) and (max-width: 1150px) {
+  .servicesGrid {
+    width: 96%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.3rem;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 2rem;
+  }
+}
+
+/* 1150-1250 */
+@media (min-width: 1151px) and (max-width: 1250px) {
+  .servicesGrid {
+    width: 98%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 2rem;
+  }
+}
+
+/* מעל 1250 */
+@media (min-width: 1251px) {
+  .servicesGrid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    padding: 1.5rem 0;
+  }
+  
+  .serviceTitle {
+    font-size: 2.1rem;
+  }
+}

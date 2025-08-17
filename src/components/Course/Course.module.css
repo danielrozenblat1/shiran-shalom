@@ -1,0 +1,322 @@
+/* Base styles */
+.container {
+    max-width: 800px;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    direction: rtl;
+  }
+  
+  .title {
+    color: #714F4D;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+    font-family: 'Assistant', sans-serif;
+  }
+  
+  .section {
+    background: rgba(245, 240, 235, 0.5);
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border-radius: 15px;
+    box-shadow: 
+      0 4px 16px rgba(113, 79, 77, 0.05),
+      inset 0 0 16px rgba(255, 255, 255, 0.5);
+  }
+  
+  .sectionTitle {
+    color: #714F4D;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(113, 79, 77, 0.2);
+    padding-bottom: 0.5rem;
+    font-family: 'Assistant', sans-serif;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .listItem {
+    color: #5a3f3d;
+    margin: 1rem 0;
+    padding-right: 2rem;
+    position: relative;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'AssistantR', sans-serif;
+  }
+  
+  .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    color: #714F4D;
+    opacity: 0.8;
+    min-width: 1.2rem;
+  }
+  
+  .highlight {
+    background: linear-gradient(120deg, rgba(113, 79, 77, 0.1), rgba(245, 240, 235, 0.3));
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    box-shadow: 
+      0 4px 12px rgba(113, 79, 77, 0.05),
+      inset 0 0 8px rgba(255, 255, 255, 0.8);
+  }
+  
+  .highlight p {
+    color: #5a3f3d;
+    line-height: 1.8;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-family: 'AssistantR', sans-serif;
+  }
+  
+  .price {
+    font-size: 1.2rem;
+    color: #714F4D;
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(245, 240, 235, 0.7);
+    border-radius: 15px;
+    box-shadow: 
+      0 4px 16px rgba(113, 79, 77, 0.05),
+      inset 0 0 16px rgba(255, 255, 255, 0.5);
+    font-family: 'AssistantR', sans-serif;
+  }
+  
+  .price h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-family: 'Assistant', sans-serif;
+  }
+  
+  .kitList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .kitItem {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    color: #5a3f3d;
+    box-shadow: 
+      0 2px 8px rgba(113, 79, 77, 0.05),
+      inset 0 0 8px rgba(255, 255, 255, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-family: 'AssistantR', sans-serif;
+  }
+  
+  .kitItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 4px 12px rgba(113, 79, 77, 0.1),
+      inset 0 0 8px rgba(255, 255, 255, 0.8);
+  }
+  .kitImageContainer {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    padding: 1rem;
+  }
+  
+  .kitImage {
+    border-radius: 15px;
+    width:200px;
+    height:200px;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(113, 79, 77, 0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .kitImage:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Below 350px */
+  @media screen and (max-width: 349px) {
+    .container {
+      width: 95%;
+      margin: 0.5rem auto;
+      padding: 0.5rem 0.5rem;
+    }
+    
+    .title {
+      font-size: 1.8rem;
+    }
+    
+    .section {
+      padding: 1rem;
+    }
+    
+    .sectionTitle {
+      font-size: 1.2rem;
+    }
+    
+    .listItem {
+      padding-right: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .highlight {
+      padding: 1rem;
+    }
+    
+    .price h2 {
+      font-size: 1.6rem;
+    }
+    
+    .kitList {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+    
+    .kitItem {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* 350px - 450px */
+  @media screen and (min-width: 350px) and (max-width: 450px) {
+    .container {
+      width: 92%;
+      margin: 0.5rem auto;
+      padding: 0.5rem 0.75rem;
+    }
+    
+    .title {
+      font-size: 2rem;
+    }
+    
+    .section {
+      padding: 1.5rem;
+    }
+    
+    .kitList {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    
+    .kitItem {
+      padding: 0.8rem;
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* 450px - 550px */
+  @media screen and (min-width: 451px) and (max-width: 550px) {
+    .container {
+      width: 90%;
+      margin: 0.5rem auto;
+      padding: 0.5rem 1rem;
+    }
+    
+    .title {
+      font-size: 2.2rem;
+    }
+    
+    .kitList {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* 550px - 650px */
+  @media screen and (min-width: 551px) and (max-width: 650px) {
+    .container {
+      width: 88%;
+      margin: 1.8rem auto;
+      padding: 2.5rem 1.5rem;
+    }
+    
+    .kitList {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* 650px - 750px */
+  @media screen and (min-width: 651px) and (max-width: 750px) {
+    .container {
+      width: 85%;
+      margin: 1.8rem auto;
+    }
+    
+    .kitList {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* 750px - 850px */
+  @media screen and (min-width: 751px) and (max-width: 850px) {
+    .container {
+      width: 82%;
+      margin: 2rem auto;
+    }
+    
+    .kitList {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* 850px - 950px */
+  @media screen and (min-width: 851px) and (max-width: 950px) {
+    .container {
+      width: 70%;
+      max-width: 820px;
+    }
+    
+    .kitList {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* 950px - 1050px */
+  @media screen and (min-width: 951px) and (max-width: 1050px) {
+    .container {
+      max-width: 920px;
+    }
+    
+    .kitList {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* 1050px - 1150px */
+  @media screen and (min-width: 1051px) and (max-width: 1150px) {
+    .container {
+      max-width: 1020px;
+    }
+    
+    .kitList {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* 1150px - 1250px */
+  @media screen and (min-width: 1151px) and (max-width: 1250px) {
+    .container {
+      max-width: 1120px;
+    }
+    
+    .kitList {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }

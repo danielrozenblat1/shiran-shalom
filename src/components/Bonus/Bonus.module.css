@@ -1,0 +1,126 @@
+/* Bonus.module.css */
+.box {
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 2% auto;
+    background: linear-gradient(
+        160deg,
+        rgba(255,255,255,1) 0%,
+        rgba(144, 108, 115, 0.6) 100%
+    );
+    border-radius: 20px;
+    padding: 12px 24px;
+    box-shadow: 
+        0 4px 6px -1px rgba(99, 65, 63, 0.08),
+        0 15px 35px -5px rgba(180, 131, 140, 0.12),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+        inset 0 0 0 2px rgba(180, 131, 140, 0.08);
+    position: relative;
+}
+
+/* מתחת ל-350px */
+@media screen and (max-width: 349px) {
+    .box {
+        width: 90%;
+        padding: 8px 16px;
+        margin: 1% auto;
+    }
+    
+    .title {
+        font-size: 1.4rem;
+        margin: 2% auto;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+        width: 95%;
+    }
+    
+    .icon {
+        width: 25%;
+    }
+}
+
+/* 350px עד 450px */
+@media screen and (min-width: 350px) and (max-width: 450px) {
+    .box {
+        width: 85%;
+        padding: 10px 20px;
+    }
+    
+    .title {
+        font-size: 1.6rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+        width: 92%;
+    }
+    
+    .icon {
+        width: 22%;
+    }
+}
+
+/* 450px עד 550px */
+@media screen and (min-width: 451px) and (max-width: 550px) {
+    .box {
+        width: 80%;
+        padding: 11px 22px;
+    }
+    
+    .title {
+        font-size: 1.7rem;
+    }
+    
+    .description {
+        font-size: 1.05rem;
+    }
+    
+    .icon {
+        width: 20%;
+    }
+}
+
+/* שאר הסגנונות הקיימים נשארים ללא שינוי */
+.box::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: linear-gradient(
+        135deg,
+        rgba(180, 131, 140, 0.04),
+        rgba(99, 65, 63, 0.03)
+    );
+    border-radius: 19px;
+    z-index: -1;
+}
+
+.description {
+    font-size: 1.1rem;
+    font-family: "AssistantR";
+    text-align: center;
+    margin: 2% auto;
+    direction: rtl;
+    width: 90%;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-family: "Assistant";
+    text-align: center;
+    margin: 3% auto;
+    direction: rtl;
+    width: 90%;
+    text-shadow: 0 2px 4px rgba(180, 131, 140, 0.1);
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    margin: 2% auto;
+    filter: drop-shadow(0 2px 4px rgba(99, 65, 63, 0.2));
+}
