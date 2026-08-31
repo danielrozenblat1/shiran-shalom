@@ -1,28 +1,30 @@
 import IconTextComponent from "../components/Can/Can"
 import styles from "./SecondScreen.module.css"
-import shiran from "../images/שירן שלום הכנסות.png"
-import learn from "../images/שירן שלום מקצוע.png"
-import time from "../images/שירן שלום זמן.png"
+import shiran from "../images/שירן שלום הכנסות.webp"
+import learn from "../images/שירן שלום מקצוע.webp"
+import time from "../images/שירן שלום זמן.webp"
 import NewBox from "../components/newBox/NewBox"
 import keep from "../Icons/wired-outline-456-handshake-deal-hover-pinch (1).json"
 import doing from "../Icons/wired-outline-1581-mascara-eyelash-hover-pinch.json"
 import always from "../Icons/wired-outline-1575-eyelash-hover-pinch (1).json"
 import AboutMe from "../components/me/Me"
 import Students from "../components/recommends/Students"
-import recomend from "../images/שירן שלום המלצות.png"
+import recomend from "../images/שירן שלום המלצות.webp"
 import Button from "../components/WAbutton/Button"
 import { ChevronDown } from "lucide-react"
 import StudentsWorks from "../components/recommends/StudentsWorks"
 import VideoGallery from "../components/studioVideos/StudioVideos"
 import video1 from "../videos/שירן שלום סרטון המלצה 1.mp4"
 import video2 from "../videos/שירן שלום סרטון המלצה 2.mp4"
+import poster1 from "../images/שירן שלום סרטון המלצה 1 פוסטר.webp"
+import poster2 from "../images/שירן שלום סרטון המלצה 2 פוסטר.webp"
 const SecondScreen=()=>{
   const videos=[
-    {src:video1,alt:"שירן שלום סרטון המלצה"}, {src:video2,alt:"שירן שלום סרטון המלצה 2"}
+    {src:video1,poster:poster1,alt:"שירן שלום סרטון המלצה"}, {src:video2,poster:poster2,alt:"שירן שלום סרטון המלצה 2"}
   ]
 
     return <>
-    <div className={styles.title} id="קורס">לא הגעת לכאן בטעות</div>
+    <h2 className={styles.title} id="קורס">לא הגעת לכאן בטעות</h2>
     <div className={styles.description}>אם את כאן זה אומר ששמעת כבר על תחום הביוטי ועל כל היתרונות שהוא מביא איתו</div>
 <div className={styles.row}>
 <IconTextComponent text="להתפרנס מהתחום שאת הכי אוהבת בכל יום מחדש" imageSrc={shiran}/>
@@ -31,9 +33,9 @@ const SecondScreen=()=>{
 
 </div>
 <div className={styles.descriptionSpecial}>אני יכולה להגיד לך בפה מלא</div>
-<div className={styles.title}>שזה אפשרי</div>
+<h2 className={styles.title}>שזה אפשרי</h2>
 <div className={styles.description}>אבל חשוב לי שתביני! הצלחה לא מגיעה ברגע ואת לא עומדת לנהל עסק משגשג בתחום בתוך שבוע</div>
-<div className={styles.title}>הצלחה בתחום תדרוש ממך</div>
+<h2 className={styles.title}>הצלחה בתחום תדרוש ממך</h2>
 <div className={styles.row}>
 <NewBox
         title="מחוייבות"
@@ -52,17 +54,17 @@ const SecondScreen=()=>{
       />
 </div>
 <div className={styles.description}>וברגע שתיישמי את כל השלושה</div>
-<div className={styles.title}>תגיעי לתוצאות</div>
+<h2 className={styles.title}>תגיעי לתוצאות</h2>
 
 <Students/>
 <StudentsWorks/>
 
 <AboutMe/>
-<div className={styles.title}>שבסוף התהליך דיברו ככה:</div>
-<div className={styles.center}><img className={styles.image} src={recomend} alt="שירן שלום המלצות"/></div>
+<h2 className={styles.title}>שבסוף התהליך דיברו ככה:</h2>
+<div className={styles.center}><img loading="lazy" decoding="async" className={styles.image} src={recomend} alt="המלצות של תלמידות ולקוחות על קורס הדבקת הריסים והטיפולים של שירן שלום"/></div>
 <VideoGallery videos={videos}/>
 <Button text="שמעתי מספיק, בואי נדבר"/>
-<div className={styles.title}>בואי נדבר תכלס על מה שאת הולכת לעבור אצלי</div>
+<h2 className={styles.title}>בואי נדבר תכלס על מה שאת הולכת לעבור אצלי</h2>
 <div className={styles.arrowContainer}>
         <ChevronDown className={styles.bounceArrow} size={40} strokeWidth={1} />
       </div>

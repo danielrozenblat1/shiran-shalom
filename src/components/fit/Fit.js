@@ -16,10 +16,10 @@ export default function CourseSuitability() {
   ];
 
   return <>
-  <div className={styles.header}>הקורס לא מתאים לכל אחת!</div>
+  <h2 className={styles.header}>הקורס לא מתאים לכל אחת!</h2>
     <div className={styles.row}>
       <div className={styles.suitabilityContainer}>
-        <h2 className={styles.title}>הקורס מתאים ל:</h2>
+        <h3 className={styles.title}>הקורס מתאים ל:</h3>
         <ul className={styles.list}>
           {suitable.map((item, index) => (
             <li key={index} className={styles.listItem}>
@@ -31,7 +31,7 @@ export default function CourseSuitability() {
       </div>
 
       <div className={styles.suitabilityContainer}>
-        <h2 className={styles.title}>הקורס לא מתאים ל:</h2>
+        <h3 className={styles.title}>הקורס לא מתאים ל:</h3>
         <ul className={styles.list}>
           {notSuitable.map((item, index) => (
             <li key={index} className={styles.listItem}>

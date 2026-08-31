@@ -59,7 +59,7 @@ const NewBox = (props) => {
       <div className={styles.icon}>
         <Player icon={props.icon} ref={playerRef1} size="100%" loop={true} onComplete={handleComplete}></Player>
       </div>
-      <div className={styles.title}>{props.title}</div>
+      <h3 className={styles.title}>{props.title}</h3>
   
       </div>
       <div className={styles.description}>{props.description}</div>

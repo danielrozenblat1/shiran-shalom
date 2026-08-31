@@ -1,165 +1,393 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="https://shiranshalomacademy.co.il/שירן שלום אייקון.png" />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="author" content="דניאל רוזנבלט">
-    <meta name="geo.region" content="IL">
-    <meta name="keywords" content="שירן שלום" />
-    <meta name="keywords" content="הדבקת ריסים" />
-    <meta name="keywords" content="איפור קבוע" />
-    <meta name="keywords" content="קורס הדבקת ריסים" />
-    <meta name="keywords" content="קורס איפור קבוע" />
-    <meta name="keywords" content="קורס להדבקת ריסים" />
 
-    <meta name="keywords" content="הדבקת ריסים" />
-    <meta name="keywords" content="איך להביא לידים מהאינסטגרם" />
-    <meta name="keywords" content="המלצות לטכנאיות ריסים" />
-    <meta name="keywords" content="הדבקת ריסים" />
-    <meta name="keywords" content="קורס בתחום הביוטי" />
-    <meta name="keywords" content="פיגמנט שפתיים" />
-    <meta name="keywords" content="איפור קבוע" />
-    <meta name="keywords" content="לימודי הדבקת ריסים" />
-    <meta name="keywords" content="טיפולי איפור קבוע" />
+    <!-- Open the TCP/TLS handshake to the third-party origins early so the
+         analytics and accessibility scripts are not paying for it later. -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.enable.co.il" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://cdn.enable.co.il" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="twitter:title" content="שירן שלום">
-    <meta name="twitter:description" content="קורס להדבקת ריסים || טיפולי פיגמנט שפתיים">
-    <meta name="twitter:image" content="https://shiranshalomacademy.co.il/שירן שלום אייקון.png">
-    <meta name="theme-color" content="#000000" />
-    <meta name="geo.region" content="IL">
-    <meta property="og:title" content="שירן שלום" />
-    <meta property="og:description" content="קורס להדבקת ריסים || טיפולי פיגמנט שפתיים" />
-    <meta property="og:image" content="https://shiranshalomacademy.co.il/שירן שלום אייקון.png"/>
-    <meta property="og:url" content="https://shiranshalomacademy.co.il" />
-    <meta name="description" content="קורס להדבקת ריסים || טיפולי פיגמנט שפתיים"  data-rh="true"/>
-    <link rel="canonical" href="https://shiranshalomacademy.co.il" />
- 
-    <link rel="apple-touch-icon" href="https://shiranshalomacademy.co.il/שירן שלום אייקון.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+
+    <title>קורס הדבקת ריסים ופיגמנט שפתיים | האקדמיה של שירן שלום</title>
     <meta
       name="description"
-      content="קורס להדבקת ריסים || טיפולי פיגמנט שפתיים"
+      content="קורס הדבקת ריסים מקצועי ופרטני עם שירן שלום - גם ללא ניסיון קודם. ערכה מלאה, תעודת הסמכה וליווי אישי. וגם טיפולי פיגמנט שפתיים, הדבקת ריסים והרמת ריסים וגבות."
+      data-rh="true"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/שירן שלום אייקון.png" />
+
+    <link rel="canonical" href="https://shiranshalomacademy.co.il/" />
+    <link rel="alternate" hreflang="he-IL" href="https://shiranshalomacademy.co.il/" />
+    <link rel="alternate" hreflang="x-default" href="https://shiranshalomacademy.co.il/" />
+
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <meta name="author" content="שירן שלום" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="geo.region" content="IL" />
+    <meta name="geo.placename" content="ישראל" />
+    <meta name="language" content="Hebrew" />
+    <meta
+      name="keywords"
+      content="קורס הדבקת ריסים, הדבקת ריסים, לימודי הדבקת ריסים, קורס איפור קבוע, איפור קבוע, פיגמנט שפתיים, הרמת ריסים, הרמת גבות, עיצוב גבות, קורס בתחום הביוטי, שירן שלום"
+    />
+
+    <!-- Icons -->
+    <link rel="icon" href="https://shiranshalomacademy.co.il/%D7%A9%D7%99%D7%A8%D7%9F%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%99%D7%A7%D7%95%D7%9F.png" />
+    <link rel="apple-touch-icon" href="https://shiranshalomacademy.co.il/%D7%A9%D7%99%D7%A8%D7%9F%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%99%D7%A7%D7%95%D7%9F.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="he_IL" />
+    <meta property="og:site_name" content="שירן שלום - Beauty Expertise Academy" />
+    <meta property="og:title" content="קורס הדבקת ריסים ופיגמנט שפתיים | האקדמיה של שירן שלום" />
+    <meta property="og:description" content="קורס הדבקת ריסים מקצועי ופרטני עם שירן שלום - גם ללא ניסיון קודם. ערכה מלאה, תעודת הסמכה וליווי אישי. וגם טיפולי פיגמנט שפתיים, הדבקת ריסים והרמת ריסים וגבות." />
+    <meta property="og:url" content="https://shiranshalomacademy.co.il/" />
+    <meta property="og:image" content="https://shiranshalomacademy.co.il/%D7%A9%D7%99%D7%A8%D7%9F%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%99%D7%A7%D7%95%D7%9F.png" />
+    <meta property="og:image:secure_url" content="https://shiranshalomacademy.co.il/%D7%A9%D7%99%D7%A8%D7%9F%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%99%D7%A7%D7%95%D7%9F.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="586" />
+    <meta property="og:image:height" content="285" />
+    <meta property="og:image:alt" content="לוגו שירן שלום - Beauty Expertise Academy" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="קורס הדבקת ריסים ופיגמנט שפתיים | האקדמיה של שירן שלום" />
+    <meta name="twitter:description" content="קורס הדבקת ריסים מקצועי ופרטני עם שירן שלום - גם ללא ניסיון קודם. ערכה מלאה, תעודת הסמכה וליווי אישי. וגם טיפולי פיגמנט שפתיים, הדבקת ריסים והרמת ריסים וגבות." />
+    <meta name="twitter:image" content="https://shiranshalomacademy.co.il/%D7%A9%D7%99%D7%A8%D7%9F%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%99%D7%A7%D7%95%D7%9F.png" />
+    <meta name="twitter:image:alt" content="לוגו שירן שלום - Beauty Expertise Academy" />
+
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "הדבקת ריסים",
-        "description": "מוזמנת להכנס לדף ולהתרשם ממבחר הלקוחות שסמכו עלי",
-        "provider": {
-          "@type": "Organization",
-          "name": "הדבקת ריסים",
-          "url": "https://shiranshalomacademy.co.il"
-        },
-        "courseMode": "https://schema.org/InstructorLedCourse",
-        "telephone": "+972509365362"
-      }
-      
-      {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "איפור קבוע",
-        "description": "כנסי והתרשמי מהבנות שכבר סמכו עלי",
-        "provider": {
-          "@type": "Organization",
-          "name": "Beauty Expertise Academy",
-          "url": "https://shiranshalomacademy.co.il"
-        },
-        "courseMode": "https://schema.org/InstructorLedCourse",
-        "telephone": "+972509365362"
-      }
-      
-      {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "שירן שלום",
-        "description": "קורס להדבקת ריסים | טיפולי איפור קבוע",
-        "provider": {
-          "@type": "Organization",
-          "name": "Beauty Expertise Academy",
-          "url": "https://shiranshalomacademy.co.il"
-        },
-        "telephone": "+972509365362",
-        "hasCourseInstance": [
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["BeautySalon", "EducationalOrganization"],
+      "@id": "https://shiranshalomacademy.co.il/#organization",
+      "name": "שירן שלום - Beauty Expertise Academy",
+      "alternateName": ["Beauty Expertise Academy", "האקדמיה של שירן שלום", "Shiran Shalom Eyelashes"],
+      "url": "https://shiranshalomacademy.co.il/",
+      "telephone": "+972509365362",
+      "description": "אקדמיה וסטודיו ביוטי של שירן שלום. הכשרה מקצועית להדבקת ריסים בליווי אישי צמוד, וטיפולי פיגמנט שפתיים, הדבקת ריסים והרמת ריסים וגבות.",
+      "image": { "@id": "https://shiranshalomacademy.co.il/#logo" },
+      "logo": { "@id": "https://shiranshalomacademy.co.il/#logo" },
+      "founder": { "@id": "https://shiranshalomacademy.co.il/#shiran-shalom" },
+      "employee": { "@id": "https://shiranshalomacademy.co.il/#shiran-shalom" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IL"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "ישראל"
+      },
+      "knowsLanguage": {
+        "@type": "Language",
+        "name": "Hebrew",
+        "alternateName": "he"
+      },
+      "knowsAbout": [
+        "הדבקת ריסים",
+        "קורס הדבקת ריסים",
+        "הרמת ריסים",
+        "עיצוב גבות",
+        "הרמת גבות",
+        "איפור קבוע",
+        "פיגמנט שפתיים",
+        "סגנונות הדבקת ריסים: קלאסי, בובתי, חתולי וווליום",
+        "מבנה העין, מחלות עיניים ואלרגיות",
+        "שיווק ובניית עסק בתחום הביוטי"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "@id": "https://shiranshalomacademy.co.il/#contact",
+          "telephone": "+972509365362",
+          "contactType": "customer service",
+          "areaServed": "IL",
+          "availableLanguage": ["he", "Hebrew"]
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "קורסים וטיפולים",
+        "itemListElement": [
           {
-            "@type": "CourseInstance",
-            "courseMode": "https://schema.org/InstructorLedCourse"
+            "@type": "Offer",
+            "itemOffered": { "@id": "https://shiranshalomacademy.co.il/#course-lash-extensions" }
           },
           {
-            "@type": "CourseInstance",
-            "courseMode": "https://schema.org/InstructorLedCourse"
+            "@type": "Offer",
+            "itemOffered": { "@id": "https://shiranshalomacademy.co.il/#service-lip-pigment" }
           },
           {
-            "@context": "https://schema.org",
-            "@type": "ImageObject",
-            "name": "הדבקת ריסים",
-            "description": "יד ביד איתך בדרך להצלחה שלך!",
-            "thumbnailUrl": "https://shiranshalomacademy.co.il/שירן שלום אייקון.png",
-            "embedUrl": "https://shiranshalomacademy.co.il/"
-          }, 
-          {
-            "@context": "https://schema.org",
-            "@type": "ImageObject",
-            "name": "איפור קבוע",
-            "description": "איתך עד שתהי מרוצה מהתוצאה!",
-            "thumbnailUrl": "https://shiranshalomacademy.co.il/שירן שלום אייקון.png",
-            "embedUrl": "https://shiranshalomacademy.co.il/"
+            "@type": "Offer",
+            "itemOffered": { "@id": "https://shiranshalomacademy.co.il/#service-lash-extensions" }
           },
           {
-            "@context": "https://schema.org",
-            "@type": "ImageObject",
-            "name": "שירן שלום",
-            "description": "קורס להדבקת ריסים | טיפולי איפור קבוע",
-            "thumbnailUrl": "https://shiranshalomacademy.co.il/שירן שלום אייקון.png",
-            "embedUrl": "https://shiranshalomacademy.co.il/"
-          }
-          {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "הכירו את שירן שלום : גלו עוד על המומחית שמאחורי הלקוחות הכי מרוצות בארץ",
-            "author": {
-              "@type": "Person",
-              "name": "שירן שלום",
-              "url": "https://shiranshalomacademy.co.il"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "שירן שלום",
-              "url": "https://shiranshalomacademy.co.il"
-            },
-            "datePublished": "2024-04-17",
-            "description": "מומחית להדבקת ריסים ואיפור קבוע",
-            "image": "https://shiranshalomacademy.co.il/שירן שלום אייקון.png",
-            "keywords": ["הדבקת ריסים", "קורס הדבקת ריסים", "איפור קבוע","שירן שלום"],
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://shiranshalomacademy.co.il"
-            },
-            "telephone": "+972509365362"
+            "@type": "Offer",
+            "itemOffered": { "@id": "https://shiranshalomacademy.co.il/#service-lash-brow-lift" }
           }
         ]
       }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://shiranshalomacademy.co.il/#logo",
+      "url": "https://shiranshalomacademy.co.il/%D7%A9%D7%99%D7%A8%D7%9F%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%99%D7%A7%D7%95%D7%9F.png",
+      "contentUrl": "https://shiranshalomacademy.co.il/%D7%A9%D7%99%D7%A8%D7%9F%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%99%D7%A7%D7%95%D7%9F.png",
+      "width": 586,
+      "height": 285,
+      "caption": "שירן שלום - Beauty Expertise Academy",
+      "inLanguage": "he-IL"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://shiranshalomacademy.co.il/#shiran-shalom",
+      "name": "שירן שלום",
+      "alternateName": "Shiran Shalom",
+      "url": "https://shiranshalomacademy.co.il/",
+      "image": { "@id": "https://shiranshalomacademy.co.il/#logo" },
+      "jobTitle": "מומחית להדבקת ריסים ואיפור קבוע, מדריכת קורסים",
+      "worksFor": { "@id": "https://shiranshalomacademy.co.il/#organization" },
+      "telephone": "+972509365362",
+      "description": "שירן שלום ליוותה בשנים האחרונות מאות נשים במסע שלהן לביטחון עצמי ולהגשמה מקצועית בעולם היופי. האקדמיה שלה מתמחה בהדבקת ריסים, פיגמנט שפתיים ועיצוב גבות, ומעניקה ליווי אישי לכל תלמידה גם לאחר סיום הקורס.",
+      "knowsAbout": [
+        "הדבקת ריסים",
+        "הרמת ריסים וגבות",
+        "פיגמנט שפתיים",
+        "איפור קבוע",
+        "עיצוב גבות",
+        "הדרכת קורסים בתחום הביוטי"
+      ],
+      "knowsLanguage": {
+        "@type": "Language",
+        "name": "Hebrew",
+        "alternateName": "he"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://shiranshalomacademy.co.il/#website",
+      "url": "https://shiranshalomacademy.co.il/",
+      "name": "שירן שלום - Beauty Expertise Academy",
+      "description": "קורס הדבקת ריסים מקצועי וטיפולי פיגמנט שפתיים, הדבקת ריסים והרמת ריסים וגבות עם שירן שלום.",
+      "inLanguage": "he-IL",
+      "publisher": { "@id": "https://shiranshalomacademy.co.il/#organization" }
+    },
+    {
+      "@type": "Course",
+      "@id": "https://shiranshalomacademy.co.il/#course-lash-extensions",
+      "name": "קורס מקצועי להדבקת ריסים",
+      "url": "https://shiranshalomacademy.co.il/#%D7%A7%D7%95%D7%A8%D7%A1",
+      "description": "קורס מקצועי להדבקת ריסים המועבר בצורה פרטנית, אחת על אחת, וכולל חלק עיוני וחלק מעשי. הקורס מתאים גם למי שמגיעה ללא רקע וללא ניסיון כלל, ומקנה ערכת קורס מלאה לעבודה מיידית, חוברת עבודה מפורטת, תעודת הסמכה, ליווי אישי לאחר הקורס וקבוצת ווטסאפ לייעוץ ולטיפים.",
+      "inLanguage": "he-IL",
+      "provider": { "@id": "https://shiranshalomacademy.co.il/#organization" },
+      "educationalCredentialAwarded": "תעודת הסמכה",
+      "coursePrerequisites": "אין צורך ברקע קודם או בניסיון בתחום",
+      "isAccessibleForFree": false,
+      "teaches": [
+        "לימוד שיטת ההדבקה ודגשים נכונים על צפיפות ושלבי עבודה",
+        "שיטות מיוחדות לעמידות מרבית של הסט",
+        "סוגי דבקים והשימוש בהם",
+        "מבנה העין, מחלות עיניים ואלרגיות",
+        "סגנון הדבקה חתולי",
+        "סגנון הדבקה בובתי",
+        "סגנון הדבקה ווליום",
+        "סגנון הדבקה קלאסי",
+        "תרגול מעשי על שתי מודליסטיות בשני סגנונות הדבקה שונים",
+        "שיווק נכון ופרסום"
+      ],
+      "about": [
+        { "@type": "Thing", "name": "הדבקת ריסים" },
+        { "@type": "Thing", "name": "תחום הביוטי" }
+      ],
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student",
+        "audienceType": "נשים המעוניינות להסב מקצוע ולעבוד בתחום הביוטי, עם או בלי ניסיון קודם"
+      },
+      "hasCourseInstance": [
+        {
+          "@type": "CourseInstance",
+          "@id": "https://shiranshalomacademy.co.il/#course-lash-extensions-instance",
+          "name": "קורס הדבקת ריסים - מפגשים פרטניים אחת על אחת",
+          "description": "הקורס מועבר בצורה פרטנית, אחת על אחת, וכולל מפגשים עיוניים ומעשיים. לאחר החלק העיוני מתקיים תרגול על שתי מודליסטיות בשני סגנונות הדבקה שונים.",
+          "courseMode": "Onsite",
+          "inLanguage": "he-IL",
+          "instructor": { "@id": "https://shiranshalomacademy.co.il/#shiran-shalom" },
+          "location": {
+            "@type": "Place",
+            "name": "הסטודיו של שירן שלום",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://shiranshalomacademy.co.il/#service-lip-pigment",
+      "name": "פיגמנט שפתיים",
+      "serviceType": "איפור קבוע לשפתיים",
+      "url": "https://shiranshalomacademy.co.il/#%D7%98%D7%99%D7%A4%D7%95%D7%9C%D7%99%D7%9D",
+      "description": "טיפול המעניק לשפתיים מראה טבעי ומושלם עם צבע מותאם אישית. התוצאה - שפתיים במראה רענן ומלא חיים, ללא צורך בשימוש יומיומי באודם או בתיקונים במהלך היום. התהליך כולל פגישת ייעוץ ותיאום ציפיות, טיפול ראשון בן שלוש שעות תחת אלחוש מקומי, וטיפול השלמה כעבור חודש. עמידות של שנתיים.",
+      "provider": { "@id": "https://shiranshalomacademy.co.il/#organization" },
+      "areaServed": { "@type": "Country", "name": "ישראל" },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "נשים שחולמות על שפתיים במראה טבעי ומושלם, מי שנמאס לה מתיקוני אודם תכופים, ומי שמחפשת פתרון קבוע לשפתיים חיוורות או כהות"
+      },
+      "inLanguage": "he-IL"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://shiranshalomacademy.co.il/#service-lash-extensions",
+      "name": "הדבקת ריסים",
+      "serviceType": "הדבקת ריסים",
+      "url": "https://shiranshalomacademy.co.il/#%D7%98%D7%99%D7%A4%D7%95%D7%9C%D7%99%D7%9D",
+      "description": "טיפול להארכת והעשרת הריסים באמצעות הדבקת ריסים מלאכותיות איכותיות. התוצאה - מראה מלא ומרשים של הריסים ללא צורך במסקרה יומיומית. התהליך כולל ייעוץ והתאמה של אורך וסגנון הריסים למבנה העין, הכנת העין והדבקה מדויקת. עמידות של 3-4 שבועות. מגיל 16 ומעלה.",
+      "provider": { "@id": "https://shiranshalomacademy.co.il/#organization" },
+      "areaServed": { "@type": "Country", "name": "ישראל" },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "מי שרוצה מראה טבעי ומרשים של ריסים ארוכים ומלאים ולחסוך זמן בהתארגנות הבוקר"
+      },
+      "inLanguage": "he-IL"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://shiranshalomacademy.co.il/#service-lash-brow-lift",
+      "name": "הרמת ריסים וגבות",
+      "serviceType": "הרמת ריסים ועיצוב גבות",
+      "url": "https://shiranshalomacademy.co.il/#%D7%98%D7%99%D7%A4%D7%95%D7%9C%D7%99%D7%9D",
+      "description": "טיפול המעניק מראה מורם וטבעי לריסים ולגבות. התהליך מחזק ומעצב את הריס והגבה הקיימים ליצירת מראה מסורק של הגבה ורענן של העיניים, וכולל בדיקת התאמה, הרמת הריס והגבה וטיפול מזין. עמידות של 6-8 שבועות. מגיל 16 ומעלה.",
+      "provider": { "@id": "https://shiranshalomacademy.co.il/#organization" },
+      "areaServed": { "@type": "Country", "name": "ישראל" },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "מי שרוצה מראה טבעי ומורם של הריס והגבה, ומי שיש לה ריסים ישרים או נוטים כלפי מטה"
+      },
+      "inLanguage": "he-IL"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://shiranshalomacademy.co.il/#nav-course",
+      "name": "הקורס",
+      "url": "https://shiranshalomacademy.co.il/#%D7%A7%D7%95%D7%A8%D7%A1"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://shiranshalomacademy.co.il/#nav-treatments",
+      "name": "הטיפולים שלי",
+      "url": "https://shiranshalomacademy.co.il/#%D7%98%D7%99%D7%A4%D7%95%D7%9C%D7%99%D7%9D"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://shiranshalomacademy.co.il/#nav-about",
+      "name": "מי אני",
+      "url": "https://shiranshalomacademy.co.il/#%D7%9E%D7%99%20%D7%90%D7%A0%D7%99"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://shiranshalomacademy.co.il/#nav-faq",
+      "name": "שאלות ותשובות",
+      "url": "https://shiranshalomacademy.co.il/#%D7%A9%D7%90%D7%9C%D7%95%D7%AA%20%D7%AA%D7%A9%D7%95%D7%91%D7%95%D7%AA"
+    },
+    {
+      "@type": ["WebPage", "FAQPage"],
+      "@id": "https://shiranshalomacademy.co.il/#webpage",
+      "url": "https://shiranshalomacademy.co.il/",
+      "name": "קורס הדבקת ריסים ופיגמנט שפתיים | האקדמיה של שירן שלום",
+      "description": "קורס הדבקת ריסים מקצועי ופרטני עם שירן שלום - גם ללא ניסיון קודם. ערכה מלאה, תעודת הסמכה וליווי אישי. וגם טיפולי פיגמנט שפתיים, הדבקת ריסים והרמת ריסים וגבות.",
+      "inLanguage": "he-IL",
+      "isPartOf": { "@id": "https://shiranshalomacademy.co.il/#website" },
+      "about": { "@id": "https://shiranshalomacademy.co.il/#organization" },
+      "primaryImageOfPage": { "@id": "https://shiranshalomacademy.co.il/#logo" },
+      "mentions": [
+        { "@id": "https://shiranshalomacademy.co.il/#course-lash-extensions" },
+        { "@id": "https://shiranshalomacademy.co.il/#service-lip-pigment" },
+        { "@id": "https://shiranshalomacademy.co.il/#service-lash-extensions" },
+        { "@id": "https://shiranshalomacademy.co.il/#service-lash-brow-lift" },
+        { "@id": "https://shiranshalomacademy.co.il/#shiran-shalom" }
+      ],
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "האם הדבקת ריסים פוגעת בריסים הטבעיים שלי?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ממש לא! הבריאות של הלקוחות שלי היא הדבר החשוב ביותר. אני משתמשת בשיטה מיוחדת ובטוחה, עם חומרים איכותיים שנבחרו בקפידה. בזכות הטכניקה הייחודית שלי, הריסים הטבעיים נשארים חזקים ובריאים, והתוצאה תמיד מדהימה ומקצועית!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "יש המון מתחרים בשוק, איך אני יכולה להצליח?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "זו בדיוק ההזדמנות שלך! השוק הגדול והמתפתח פותח המון אפשרויות להצלחה. אני מלמדת שיטה ייחודית שתבדל אותך ותהפוך אותך למקצוענית מבוקשת. הליווי הצמוד שלי והניסיון העשיר שצברתי יתנו לך את כל הכלים להצליח. תארי לעצמך כמה מדהים יהיה כשהלקוחות המרוצות שלך יספרו לכולן על העבודה המקצועית שלך!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם הפיגמנט בשפתיים כואב?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "את יכולה להיות רגועה לחלוטין! הטיפול מתבצע בצורה עדינה ונעימה, עם אלחוש מקומי שהופך את החוויה לנוחה במיוחד. יחד נבחר את הגוון המושלם בשבילך, ואני אלווה אותך בכל שלב עם הסברים והנחיות ברורות. התוצאה היא שפתיים טבעיות ומושלמות שיגרמו לך לחייך בכל פעם שתסתכלי במראה!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "אני מפחדת להתחיל מקצוע חדש, התנסיתי בעבר ולא הצלחתי...",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "אני מבינה את החשש והוא מוצדק אבל זו בדיוק הסיבה בניתי את הקורס בצורה שתתן לך ביטחון מלא! את מקבלת ממני ליווי אישי צמוד, חוברת עבודה מפורטת, והכי חשוב - תמיכה מתמשכת גם אחרי הקורס. כל תלמידה שלי שהגיעה עם נחישות ורצון להצליח - הגיעה להישגים מדהימים. אני מאמינה שגם את יכולה, ואני אהיה איתך בכל צעד בדרך להצלחה שלך!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "כמה זמן לוקח להתחיל להרוויח?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "את יכולה להתחיל לעבוד ולהרוויח כבר במהלך הקורס! בניתי את התכנית כך שתוכלי להתחיל בקצב שמתאים לך, אפילו במקביל לעבודה הנוכחית שלך. הקורס האינטנסיבי שלי כולל שני מפגשים מעשיים ועיוניים שיתנו לך את כל הכלים להתחיל. עם הידע והביטחון שתקבלי, תוכלי להתחיל לקבל לקוחות ולבנות את העסק שלך בקצב המתאים לך!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם מרחק הוא בעיה? אני גרה רחוק",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "החלום שלך שווה כל קילומטר! יש לי תלמידות מדהימות שמגיעות מכל רחבי הארץ, והן מספרות שההשקעה הייתה שווה כל רגע. את מקבלת הכשרה מקיפה ומקצועית שתשנה לך את החיים, ותפתח לך דלת לקריירה מרתקת ומתגמלת. חשבי על זה - בעוד כמה חודשים את יכולה להיות בעלת עסק משגשג, והמרחק יהיה רק זיכרון רחוק!"
+          }
+        }
+      ]
+    }
+  ]
+}
     </script>
- 
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QRBTMN110"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'G-2QRBTMN110');
     </script>
-    <script src="https://cdn.enable.co.il/licenses/enable-L231329s3li1y4qd-1223-67958/init.js"></script>
-    <title>שירן שלום</title>
+    <script defer src="https://cdn.enable.co.il/licenses/enable-L231329s3li1y4qd-1223-67958/init.js"></script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      כדי לצפות באתר של שירן שלום - Beauty Expertise Academy יש להפעיל JavaScript בדפדפן.
+      האקדמיה מעבירה קורס מקצועי להדבקת ריסים בליווי אישי צמוד, ומעניקה טיפולי פיגמנט שפתיים,
+      הדבקת ריסים והרמת ריסים וגבות. לפרטים ניתן ליצור קשר בטלפון 050-936-5362.
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

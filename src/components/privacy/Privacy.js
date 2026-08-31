@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Privacy.module.css';
 
-const PrivacyPolicy = ({ ownerName, email, address, domain, updateDate = "אוגוסט 2025" }) => {
+const PrivacyPolicy = ({ ownerName, email, phone, address, domain, updateDate = "אוגוסט 2025" }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -15,8 +15,9 @@ const PrivacyPolicy = ({ ownerName, email, address, domain, updateDate = "אוג
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <h2>תקנון, תנאי שימוש ומדיניות פרטיות - {ownerName}</h2>
             <p>עודכן לאחרונה: {updateDate}</p>
-            <p>בעל האתר: {ownerName}, {address}</p>
-            <p>דוא״ל: {email}</p>
+            <p>בעל האתר: {ownerName}{address ? `, ${address}` : ""}</p>
+            {email && <p>דוא״ל: {email}</p>}
+            {phone && <p>טלפון: {phone}</p>}
             <p>כתובת האתר: {domain}</p>
 
             <h3>1. מבוא</h3>
@@ -60,7 +61,7 @@ const PrivacyPolicy = ({ ownerName, email, address, domain, updateDate = "אוג
               <li>תיקון או מחיקה.</li>
               <li>התנגדות לשיווק.</li>
             </ul>
-            <p>לפניות: {email}</p>
+            <p>לפניות: {email || phone}</p>
 
             <h3>5. Cookies וטכנולוגיות מעקב</h3>
             <p>האתר משתמש ב־Cookies וכלים אנליטיים (Google Analytics) לצורך תפעול, שיפור והתאמת חוויית המשתמש.</p>
@@ -84,8 +85,9 @@ const PrivacyPolicy = ({ ownerName, email, address, domain, updateDate = "אוג
             <h3>11. יצירת קשר</h3>
             <p>לשאלות, פניות או בקשות:</p>
             <p>{ownerName}</p>
-            <p>{email}</p>
-            <p>{address}</p>
+            {email && <p>{email}</p>}
+            {phone && <p>{phone}</p>}
+            {address && <p>{address}</p>}
 
             <button className={styles.closeButton} onClick={() => setIsOpen(false)}>
               סגירה

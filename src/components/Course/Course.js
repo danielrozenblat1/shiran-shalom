@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Course.module.css';
-import kit from "../../images/שירן שלום ערכה.png"
+import kit from "../../images/שירן שלום ערכה.webp"
 import { 
   Clock, 
   GraduationCap, 
@@ -19,12 +19,11 @@ import {
   BadgeCheck,
   MessageSquare
 } from 'lucide-react';
-import Button from '../WAbutton/Button';
 
 const Syllabus = () => {
   return <>
     <div className={styles.container}>
-      <h1 className={styles.title}>קורס מקצועי להדבקת ריסים</h1>
+      <h2 className={styles.title}>קורס מקצועי להדבקת ריסים</h2>
       
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>מה מיוחד בקורס שלנו?</h2>
@@ -138,9 +137,9 @@ const Syllabus = () => {
           <div className={styles.kitItem}>שפריצר מים לניקוי הריסים</div>
         </div>
         <div className={styles.kitImageContainer}>
-        <img 
+        <img loading="lazy" decoding="async" 
           src={kit}
-          alt="ערכת הקורס"
+          alt="ערכת הכלים והחומרים שכל תלמידה מקבלת בקורס הדבקת ריסים של שירן שלום"
           className={styles.kitImage}
         />
       </div>

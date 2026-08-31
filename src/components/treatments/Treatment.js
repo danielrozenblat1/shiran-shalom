@@ -1,16 +1,13 @@
 import React from 'react';
 import styles from './Treatment.module.css';
-import brows from "../../images/הרמת ריסים וגבות.png";
-import lips from "../../images/פיגמנט שפתייים.png";
-import result1 from "../../images/שירן שלום עבודות 5.png";
-import result2 from "../../images/פיגמנט שפתיים תוצאה 1.png";
-import result3 from "../../images/שירן שלום עבודות 1.png";
-import result4 from "../../images/הרמת ריסים תוצאה 2.png";
-import result5 from "../../images/הרמת ריסים תוצאה 1.png";
-import result6 from "../../images/שירן שלום עבודות 4.png";
-import result7 from "../../images/שירן שלום עבודות תלמידות 4.png";
-import result8 from "../../images/שירן שלום עבודות 1.png";
-import result9 from "../../images/הדבקת ריסים תמונה ראשית.png";
+import brows from "../../images/הרמת ריסים וגבות.webp";
+import lips from "../../images/פיגמנט שפתייים.webp";
+import result1 from "../../images/שירן שלום עבודות 5.webp";
+import result2 from "../../images/פיגמנט שפתיים תוצאה 1.webp";
+import result4 from "../../images/הרמת ריסים תוצאה 2.webp";
+import result5 from "../../images/הרמת ריסים תוצאה 1.webp";
+import result7 from "../../images/שירן שלום עבודות תלמידות 4.webp";
+import result9 from "../../images/הדבקת ריסים תמונה ראשית.webp";
 import Button from '../WAbutton/Button';
 
 const BeautyServices = () => {
@@ -125,9 +122,9 @@ const BeautyServices = () => {
             </div>
             
             <div className={styles.mainImageContainer}>
-              <img 
+              <img loading="lazy" decoding="async" 
                 src={service.mainImage}
-                alt={`תמונת ${service.title}`}
+                alt={`${service.title} אצל שירן שלום - ${service.description}`}
                 className={styles.mainImage}
               />
               <div className={styles.imageOverlay}></div>
@@ -170,9 +167,9 @@ const BeautyServices = () => {
               <div className={styles.resultImages}>
                 {service.results.map((resultImg, idx) => (
                   <div key={idx} className={styles.resultImageContainer}>
-                    <img 
+                    <img loading="lazy" decoding="async" 
                       src={resultImg}
-                      alt={`תוצאה ${idx + 1} ${service.title}`}
+                      alt={`תוצאת טיפול ${service.title} של שירן שלום - דוגמה ${idx + 1}`}
                       className={styles.resultImage}
                     />
                     <div className={styles.imageOverlay}></div>

@@ -2,15 +2,14 @@ import React from 'react';
 import styles from './Students.module.css';
 
 // Import your images
-import result1 from "../../images/שירן שלום עבודות תלמידות 1.png";
-import result2 from "../../images/שירן שלום עבודות תלמידות 2.png";
-import result3 from "../../images/שירן שלום עבודות תלמידות 3.png";
-import result4 from "../../images/שירן שלום עבודות תלמידות 4.png";
-import result5 from "../../images/שירן שלום עבודות תלמידות 5.png";
-import result6 from "../../images/שירן שלום עבודות תלמידות 6.png";
+import result2 from "../../images/שירן שלום עבודות תלמידות 2.webp";
+import result3 from "../../images/שירן שלום עבודות תלמידות 3.webp";
+import result4 from "../../images/שירן שלום עבודות תלמידות 4.webp";
+import result5 from "../../images/שירן שלום עבודות תלמידות 5.webp";
+import result6 from "../../images/שירן שלום עבודות תלמידות 6.webp";
 
-import result8 from "../../images/שירן שלום עבודות תלמידות 9.png";
-import result10 from "../../images/שירן שלום עבודות תלמידות 10.png";
+import result8 from "../../images/שירן שלום עבודות תלמידות 9.webp";
+import result10 from "../../images/שירן שלום עבודות תלמידות 10.webp";
 import Button from '../WAbutton/Button';
 
 
@@ -25,7 +24,7 @@ const StudentsWorks = () => {
 
   return (
     <>
-      <div className={styles.explain}>ואלה עבודות של תלמידות שלי ממש בסיום הקורס!</div>
+      <h3 className={styles.explain}>ואלה עבודות של תלמידות שלי ממש בסיום הקורס!</h3>
 
       <div className={styles.container}>
         <div className={styles.scrollTrack}>
@@ -33,10 +32,10 @@ const StudentsWorks = () => {
           <div className={styles.scrollContainer}>
             {images.map((img, index) => (
               <div key={`first-${index}`} className={styles.imageWrapper}>
-                <img
+                <img loading="lazy" decoding="async"
                   src={img}
                   className={styles.image}
-                  alt={`שירן שלום עבודה מספר ${index + 1}`}
+                  alt={`עבודת הדבקת ריסים של תלמידה בסיום הקורס של שירן שלום - דוגמה ${index + 1}`}
                   itemProp="image"
                 />
               </div>
@@ -46,10 +45,10 @@ const StudentsWorks = () => {
           <div className={styles.scrollContainer}>
             {images.map((img, index) => (
               <div key={`second-${index}`} className={styles.imageWrapper}>
-                <img
+                <img loading="lazy" decoding="async"
                   src={img}
                   className={styles.image}
-                  alt={`שירן שלום עבודה מספר ${index + 1}`}
+                  alt={`עבודת הדבקת ריסים של תלמידה בסיום הקורס של שירן שלום - דוגמה ${index + 1}`}
                   itemProp="image"
                 />
               </div>

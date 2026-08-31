@@ -66,7 +66,7 @@ const Bonus = (props) => {
                     onComplete={handleComplete}
                 />
             </div>
-            <div className={styles.title}>{props.title}</div>
+            <h3 className={styles.title}>{props.title}</h3>
       
             <div className={styles.description}>{props.description}</div>
         </div>

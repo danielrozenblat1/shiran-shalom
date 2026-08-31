@@ -17,7 +17,7 @@ const FAQItem = ({ question, answer }) => {
   }, [isOpen]);
 
   return (
-    <div className={styles.faqItem} id="שאלות תשובות">
+    <div className={styles.faqItem}>
       <button
         className={styles.questionButton}
         onClick={() => setIsOpen(!isOpen)}
@@ -29,7 +29,7 @@ const FAQItem = ({ question, answer }) => {
             <Plus className={styles.icon} />
           )}
         </div>
-        <span className={styles.questionText}>{question}</span>
+        <h3 className={styles.questionText}>{question}</h3>
         <div className={styles.iconWrapper}></div>
       </button>
       <div 

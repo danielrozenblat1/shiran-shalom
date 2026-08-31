@@ -1,6 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "שירן שלום - Beauty Expertise Academy",
+  "short_name": "שירן שלום",
+  "description": "קורס מקצועי להדבקת ריסים וטיפולי פיגמנט שפתיים, הדבקת ריסים והרמת ריסים וגבות עם שירן שלום.",
+  "lang": "he",
+  "dir": "rtl",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,18 +11,18 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "%D7%A9%D7%99%D7%A8%D7%9F%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%99%D7%A7%D7%95%D7%9F.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "586x285",
+      "purpose": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "categories": ["beauty", "education", "lifestyle"]
 }

@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
 
-
-<url>
-  <loc>https://shiranshalomacademy.co.il/</loc>
-  <lastmod>2025-01-29T11:15:04+00:00</lastmod>
-</url>
-
+  <url>
+    <loc>https://shiranshalomacademy.co.il/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://shiranshalomacademy.co.il/%D7%A9%D7%99%D7%A8%D7%9F%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%99%D7%A7%D7%95%D7%9F.png</image:loc>
+      <image:title>שירן שלום - Beauty Expertise Academy</image:title>
+    </image:image>
+  </url>
 
 </urlset>

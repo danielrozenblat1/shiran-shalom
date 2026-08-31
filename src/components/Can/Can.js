@@ -20,7 +20,7 @@ const IconTextComponent = ({ text, imageSrc }) => {
     return (
         <div className={styles.container}>
             <div className={styles.imageWrapper}>
-                <img 
+                <img loading="lazy" decoding="async" 
                     src={imageSrc} 
                     alt="" 
                     className={styles.image}

@@ -10,7 +10,7 @@ import Button from '../components/WAbutton/Button';
 const ForthScreen = () => {
   return (
     <>
-      <div className={styles.title}>חשוב לי להדגיש</div>
+      <h2 className={styles.title}>חשוב לי להדגיש</h2>
       <div className={styles.description}>בכל קורס וקורס אני שמה דגש על</div>
       <div className={styles.row}>
         <Bonus 

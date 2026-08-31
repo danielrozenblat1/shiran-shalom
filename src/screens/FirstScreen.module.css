@@ -45,7 +45,7 @@
 }
   
 .centerImage {
-    background-image: url('../images/שירן\ שלום\ תמונה\ מרכזית.png');
+    background-image: url('../images/שירן\ שלום\ תמונה\ מרכזית.webp');
 }
   
 .contentBox {
@@ -258,11 +258,11 @@
 @media (min-width: 550px) {
     .leftImage {
         display: block;
-        background-image: url('../images/שירן שלום תמונה שמאל.png');
+        background-image: url('../images/שירן שלום תמונה שמאל.webp');
     }
     .rightImage {
         display: block;
-        background-image: url('../images/שירן שלום תמונה ימין.png');
+        background-image: url('../images/שירן שלום תמונה ימין.webp');
     }
     .contentBox {
         padding: 2.5rem;

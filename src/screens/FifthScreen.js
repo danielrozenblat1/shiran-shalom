@@ -31,8 +31,8 @@ const FifthScreen = () => {
   ];
 
   return (
-    <>
-      <div className={styles.title}>את שואלת ואני עונה</div>
+    <section id="שאלות תשובות">
+      <h2 className={styles.title}>את שואלת ואני עונה</h2>
       <div className={styles.description}>
         אם הגעת לכאן כנראה שאת באמת רצינית לגבי התחום! קיבצתי לך שאלות שחוזרות על עצמן מבנות שמעוניינות בתחום ורוצות לדעת כמה פרטים לפני שאנחנו מדברות
       </div>
@@ -43,7 +43,7 @@ const FifthScreen = () => {
           answer={faq.answer}
         />
       ))}
-    </>
+    </section>
   );
 };
 
