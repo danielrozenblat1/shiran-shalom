@@ -11,10 +11,22 @@
       "type": "image/x-icon"
     },
     {
-      "src": "%D7%A9%D7%99%D7%A8%D7%9F%20%D7%A9%D7%9C%D7%95%D7%9D%20%D7%90%D7%99%D7%99%D7%A7%D7%95%D7%9F.png",
+      "src": "logo192.png",
       "type": "image/png",
-      "sizes": "586x285",
+      "sizes": "192x192",
       "purpose": "any"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
   "start_url": "/",
@@ -24,5 +36,9 @@
   "orientation": "portrait",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "categories": ["beauty", "education", "lifestyle"]
+  "categories": [
+    "beauty",
+    "education",
+    "lifestyle"
+  ]
 }
