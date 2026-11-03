@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import FirstScreen from './screens/FirstScreen';
 
@@ -13,27 +14,39 @@ const FifthScreen = lazy(() => import('./screens/FifthScreen'));
 const PrivacyPolicy = lazy(() => import('./components/privacy/Privacy'));
 const ByMe = lazy(() => import('./components/ByMe/ByMe'));
 
-function App() {
-  return <main>
-<FirstScreen/>
-<Suspense fallback={null}>
-<SecondScreen/>
+// Paid-campaign landing page for lip pigment (/treats) - fully separate chunk.
+const TreatsPage = lazy(() => import('./treats/TreatsPage'));
 
-<Syllabus/>
-<ForthScreen/>
+const Home = () => (
+  <main>
+    <FirstScreen />
+    <Suspense fallback={null}>
+      <SecondScreen />
 
-<CourseSuitability/>
-<ThirdScreen/>
-<FifthScreen/>
-<PrivacyPolicy
-  ownerName="שירן שלום"
+      <Syllabus />
+      <ForthScreen />
 
-  phone="+972 50-936-5362"
-  domain="https://shiranshalomacademy.co.il/"
-/>
-<ByMe/>
-</Suspense>
+      <CourseSuitability />
+      <ThirdScreen />
+      <FifthScreen />
+      <PrivacyPolicy ownerName="שירן שלום" phone="+972 50-936-5362" domain="https://shiranshalomacademy.co.il/" />
+      <ByMe />
+    </Suspense>
   </main>
+);
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/treats" element={<TreatsPage />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  );
 }
 
 export default App;

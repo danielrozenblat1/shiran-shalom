@@ -1,0 +1,342 @@
+.wrap {
+  padding: clamp(10px, 2vh, 20px) 16px;
+  display: flex;
+  justify-content: center;
+  scroll-margin-top: 16px;
+}
+
+.card {
+  width: min(560px, 100%);
+  background: #fff;
+  border-radius: 24px;
+  padding: clamp(24px, 4vw, 40px) clamp(20px, 4vw, 36px);
+  box-shadow: 0 24px 60px rgba(60, 30, 35, 0.12), 0 2px 8px rgba(60, 30, 35, 0.05);
+  direction: rtl;
+  text-align: right;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-family: 'Discovery', 'Assistant', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.55rem, 4.2vw, 2.1rem);
+  line-height: 1.15;
+  margin: 0;
+  text-align: center;
+  color: var(--ink, #2b1f1e);
+}
+
+.subtitle {
+  font-family: 'AssistantR', sans-serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  margin: -6px 0 4px;
+  text-align: center;
+  color: rgba(43, 31, 30, 0.7);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.label {
+  font-family: 'Assistant', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--ink, #2b1f1e);
+}
+
+.optional {
+  font-family: 'AssistantR', sans-serif;
+  font-weight: 300;
+  color: rgba(43, 31, 30, 0.55);
+  font-size: 0.9rem;
+}
+
+.input,
+.textarea {
+  font-family: 'AssistantR', sans-serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: var(--ink, #2b1f1e);
+  background: #f7f3f1;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(43, 31, 30, 0.38);
+}
+
+.input:focus,
+.textarea:focus {
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(155, 76, 98, 0.22), 0 10px 26px rgba(60, 30, 35, 0.08);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 86px;
+}
+
+.invalid {
+  box-shadow: 0 0 0 2px rgba(214, 69, 90, 0.55);
+}
+
+.error {
+  font-family: 'AssistantR', sans-serif;
+  font-size: 0.9rem;
+  color: #c8344f;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.choice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 10px;
+  border-radius: 14px;
+  background: #f7f3f1;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--ink, #2b1f1e);
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.choice input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+
+.choiceOn {
+  background: var(--accent, #9b4c62);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(155, 76, 98, 0.3);
+  transform: translateY(-1px);
+}
+
+.upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f7f3f1;
+  font-family: 'AssistantR', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: rgba(43, 31, 30, 0.75);
+  cursor: pointer;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.upload:hover {
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(60, 30, 35, 0.08);
+}
+
+.upload input {
+  display: none;
+}
+
+.upload svg {
+  width: 22px;
+  height: 22px;
+  color: var(--accent, #9b4c62);
+}
+
+.previewRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.preview {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 10px 22px rgba(60, 30, 35, 0.14);
+}
+
+.removeFile {
+  background: none;
+  border: none;
+  font-family: 'AssistantR', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(43, 31, 30, 0.6);
+  cursor: pointer;
+  padding: 6px 2px;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'AssistantR', sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: rgba(43, 31, 30, 0.8);
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.consent input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--accent, #9b4c62);
+  flex-shrink: 0;
+}
+
+.consentError {
+  color: #c8344f;
+}
+
+.privacyLink button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.submit {
+  margin-top: 4px;
+  font-family: 'Discovery', 'Assistant', sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: #fff;
+  background: var(--ink, #2b1f1e);
+  border: none;
+  border-radius: 16px;
+  padding: 17px 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 18px 40px rgba(43, 31, 30, 0.26);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.submit:hover:not(:disabled) {
+  background: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 24px 48px rgba(43, 31, 30, 0.3);
+}
+
+.submit:disabled {
+  opacity: 0.75;
+  cursor: default;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sendError {
+  font-family: 'AssistantR', sans-serif;
+  font-size: 0.95rem;
+  color: #c8344f;
+  text-align: center;
+  margin: 0;
+}
+
+/* success */
+.success {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.successMark {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: var(--accent, #9b4c62);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 30px rgba(155, 76, 98, 0.35);
+  animation: pop 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.successMark svg {
+  width: 30px;
+  height: 30px;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.successTitle {
+  font-family: 'Discovery', 'Assistant', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  margin: 0 0 6px;
+}
+
+.successText {
+  font-family: 'AssistantR', sans-serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  margin: 0;
+  color: rgba(43, 31, 30, 0.7);
+}
+
+@media (max-width: 480px) {
+  .card {
+    border-radius: 20px;
+  }
+}
