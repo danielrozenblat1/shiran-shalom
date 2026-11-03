@@ -7,18 +7,9 @@ import { sendLead, isValidPhone, compressImage } from './leadApi';
 const EMPTY = { fullName: '', phone: '', clinic: '', bother: '' };
 
 // Lordicon animations, loaded lazily (module scope keeps the identity stable).
-const iconName = () => import('../Icons/form-name.json');
-const iconPhone = () => import('../Icons/form-phone.json');
-const iconLocation = () => import('../Icons/form-location.json');
-const iconEdit = () => import('../Icons/form-edit.json');
 const iconCamera = () => import('../Icons/form-camera.json');
-const iconGuarantee = () => import('../Icons/form-guarantee.json');
 const iconHeart = () => import('../Icons/form-heart.json');
 const iconArrow = () => import('../Icons/form-arrow.json');
-const iconRemove = () => import('../Icons/form-remove.json');
-
-const ACCENT = '#9b4c62';
-const INK = '#141010';
 
 /**
  * Lead form for the /treats page. Rendered several times down the page,
@@ -99,61 +90,47 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
           </div>
         ) : (
           <form className={styles.form} onSubmit={onSubmit} noValidate>
-            <div className={styles.head}>
-              <h2 className={styles.title}>{title}</h2>
-              <p className={styles.subtitle}>{subtitle}</p>
-            </div>
+            <h2 className={styles.title}>{title}</h2>
+            <p className={styles.subtitle}>{subtitle}</p>
 
-            <div className={styles.row}>
-              <label className={styles.field}>
-                <span className={styles.label}>שם מלא</span>
-                <span className={`${styles.control} ${errors.fullName ? styles.invalid : ''}`}>
-                  <LottieIcon loadIcon={iconName} size="22px" colorize={ACCENT} once className={styles.fieldIcon} />
-                  <input
-                    className={styles.input}
-                    type="text"
-                    name="fullName"
-                    autoComplete="name"
-                    value={data.fullName}
-                    onChange={onChange}
-                    placeholder="איך קוראים לך?"
-                    disabled={busy}
-                  />
-                </span>
-                {errors.fullName && <span className={styles.error}>{errors.fullName}</span>}
-              </label>
+            <label className={styles.field}>
+              <span className={styles.label}>שם מלא</span>
+              <input
+                className={`${styles.input} ${errors.fullName ? styles.invalid : ''}`}
+                type="text"
+                name="fullName"
+                autoComplete="name"
+                value={data.fullName}
+                onChange={onChange}
+                placeholder="איך קוראים לך?"
+                disabled={busy}
+              />
+              {errors.fullName && <span className={styles.error}>{errors.fullName}</span>}
+            </label>
 
-              <label className={styles.field}>
-                <span className={styles.label}>מספר טלפון</span>
-                <span className={`${styles.control} ${errors.phone ? styles.invalid : ''}`}>
-                  <LottieIcon loadIcon={iconPhone} size="22px" colorize={ACCENT} once className={styles.fieldIcon} />
-                  <input
-                    className={styles.input}
-                    type="tel"
-                    name="phone"
-                    inputMode="tel"
-                    autoComplete="tel"
-                    dir="ltr"
-                    value={data.phone}
-                    onChange={onChange}
-                    placeholder="050-0000000"
-                    disabled={busy}
-                  />
-                </span>
-                {errors.phone && <span className={styles.error}>{errors.phone}</span>}
-              </label>
-            </div>
+            <label className={styles.field}>
+              <span className={styles.label}>מספר טלפון</span>
+              <input
+                className={`${styles.input} ${errors.phone ? styles.invalid : ''}`}
+                type="tel"
+                name="phone"
+                inputMode="tel"
+                autoComplete="tel"
+                value={data.phone}
+                onChange={onChange}
+                placeholder="050-0000000"
+                disabled={busy}
+              />
+              {errors.phone && <span className={styles.error}>{errors.phone}</span>}
+            </label>
 
             <fieldset className={`${styles.field} ${styles.fieldset}`}>
-              <legend className={styles.label}>
-                <LottieIcon loadIcon={iconLocation} size="20px" colorize={ACCENT} once className={styles.labelIcon} />
-                מוכנה להגיע לקליניקה בשכונת אחיסמך החדשה, לוד?
-              </legend>
-              <div className={`${styles.segment} ${errors.clinic ? styles.invalid : ''}`}>
+              <legend className={styles.label}>האם את מוכנה להגיע לקליניקה שנמצאת בשכונת אחיסמך החדשה, לוד?</legend>
+              <div className={styles.choices}>
                 {['כן', 'לא'].map((opt) => (
-                  <label key={opt} className={`${styles.segmentItem} ${data.clinic === opt ? styles.segmentOn : ''}`}>
+                  <label key={opt} className={`${styles.choice} ${data.clinic === opt ? styles.choiceOn : ''} ${errors.clinic ? styles.invalid : ''}`}>
                     <input type="radio" name="clinic" value={opt} checked={data.clinic === opt} onChange={onChange} disabled={busy} />
-                    <span>{opt}</span>
+                    {opt}
                   </label>
                 ))}
               </div>
@@ -161,10 +138,7 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
             </fieldset>
 
             <label className={styles.field}>
-              <span className={styles.label}>
-                <LottieIcon loadIcon={iconEdit} size="20px" colorize={ACCENT} once className={styles.labelIcon} />
-                מה הכי מפריע לך בשפתיים היום?
-              </span>
+              <span className={styles.label}>מה הכי מפריע לך בשפתיים היום?</span>
               <textarea
                 className={styles.textarea}
                 name="bother"
@@ -178,29 +152,21 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
 
             <div className={styles.field}>
               <span className={styles.label}>
-                תמונה של השפתיים <span className={styles.optional}>לא חובה</span>
+                תמונה של השפתיים <span className={styles.optional}>(לא חובה)</span>
               </span>
               {preview ? (
                 <div className={styles.previewRow}>
                   <img src={preview} alt="תצוגה מקדימה של התמונה שצירפת" className={styles.preview} />
-                  <div className={styles.previewText}>
-                    <strong>התמונה צורפה</strong>
-                    <span>זה יעזור לי להתאים לך את הגוון מראש</span>
-                  </div>
-                  <button type="button" className={styles.removeFile} onClick={clearFile} disabled={busy} aria-label="הסרת התמונה">
-                    <LottieIcon loadIcon={iconRemove} size="22px" colorize={INK} once />
+                  <span className={styles.previewText}>התמונה צורפה</span>
+                  <button type="button" className={styles.removeFile} onClick={clearFile} disabled={busy}>
+                    הסרה
                   </button>
                 </div>
               ) : (
                 <label className={styles.upload}>
                   <input ref={fileRef} type="file" accept="image/*" onChange={onFile} disabled={busy} />
-                  <span className={styles.uploadIcon}>
-                    <LottieIcon loadIcon={iconCamera} size="28px" colorize={ACCENT} once />
-                  </span>
-                  <span className={styles.uploadText}>
-                    <strong>צרפי תמונה של השפתיים</strong>
-                    <span>עוזר לי להתאים לך את הגוון המדויק</span>
-                  </span>
+                  <LottieIcon loadIcon={iconCamera} size="26px" colorize="#141010" once />
+                  <span>לחצי לצירוף תמונה</span>
                 </label>
               )}
               {errors.image && <span className={styles.error}>{errors.image}</span>}
@@ -208,12 +174,7 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
 
             <label className={`${styles.consent} ${errors.agreed ? styles.consentError : ''}`}>
               <input type="checkbox" checked={agreed} onChange={() => setAgreed((a) => !a)} disabled={busy} />
-              <span className={styles.consentBox} aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
-              </span>
-              <span className={styles.consentText}>
+              <span>
                 קראתי ואני מאשרת את{' '}
                 <span onClick={(e) => e.preventDefault()} className={styles.privacyLink}>
                   <PrivacyPolicy ownerName="שירן שלום" phone="+972 50-936-5362" domain="https://shiranshalomacademy.co.il/" />
@@ -235,10 +196,7 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
               )}
             </button>
 
-            <p className={styles.trust}>
-              <LottieIcon loadIcon={iconGuarantee} size="18px" colorize={INK} once className={styles.trustIcon} />
-              שיחה קצרה, בלי התחייבות. הפרטים שלך נשארים אצלי בלבד
-            </p>
+            <p className={styles.trust}>שיחה קצרה, בלי התחייבות. הפרטים שלך נשארים אצלי בלבד</p>
 
             {status === 'error' && (
               <p className={styles.sendError} role="alert">
