@@ -224,11 +224,18 @@
   color: #c8344f;
 }
 
+.privacyLink,
+.privacyLink button {
+  display: inline;
+}
+
 .privacyLink button {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
   padding: 0;
+  margin: 0;
+  vertical-align: baseline;
 }
 
 .submit {
