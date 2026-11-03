@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaWhatsapp } from 'react-icons/fa';
 import './fonts.css';
 import styles from './TreatsPage.module.css';
 import LeadForm from './LeadForm';
 import ByMe from '../components/ByMe/ByMe';
+import LottieIcon from '../components/lottie/LottieIcon';
 import { openWhatsApp } from './leadApi';
 
 import logo from '../images/שירן שלום לוגו.webp';
@@ -12,11 +12,20 @@ import logo from '../images/שירן שלום לוגו.webp';
 // Lip pigment results. Add more photos here and they flow into the ribbon and the grid.
 import lips01 from '../images/פיגמנט שפתייים.webp';
 import lips02 from '../images/פיגמנט שפתיים תוצאה 1.webp';
+import ig01 from '../images/פיגמנט שפתיים אינסטגרם 1.webp';
+import ig02 from '../images/פיגמנט שפתיים אינסטגרם 2.webp';
+import ig03 from '../images/פיגמנט שפתיים אינסטגרם 3.webp';
+import ig04 from '../images/פיגמנט שפתיים אינסטגרם 4.webp';
+import ig05 from '../images/פיגמנט שפתיים אינסטגרם 5.webp';
+import ig06 from '../images/פיגמנט שפתיים אינסטגרם 6.webp';
+import ig07 from '../images/פיגמנט שפתיים אינסטגרם 7.webp';
 
 // Testimonials about the treatments (screenshots / collages).
 import review01 from '../images/שירן שלום המלצות.webp';
 
-const resultImages = [lips01, lips02];
+const resultImages = [ig01, lips01, ig03, ig04, lips02, ig02, ig05, ig06, ig07];
+
+const loadChatIcon = () => import('../Icons/float-chat.json');
 
 // Before / after clips: [{ src, poster }]. The section renders only when this has items.
 const beforeAfterVideos = [];
@@ -274,7 +283,7 @@ const TreatsPage = () => {
       {/* FLOATING WHATSAPP */}
       <button type="button" className={styles.floatWa} onClick={openWhatsApp} aria-label="פנייה בוואטסאפ">
         <span className={styles.floatPulse} aria-hidden="true" />
-        <FaWhatsapp />
+        <LottieIcon loadIcon={loadChatIcon} size="32px" colorize="#ffffff" />
       </button>
 
       {/* STICKY BOTTOM CTA */}

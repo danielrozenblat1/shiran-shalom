@@ -27,16 +27,6 @@
   margin-bottom: 4px;
 }
 
-.diamond {
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  margin-bottom: 12px;
-  transform: rotate(45deg);
-  background: linear-gradient(135deg, #e9d59c 0%, #c9a24d 55%, #a67c2e 100%);
-  box-shadow: 0 0 0 4px rgba(201, 162, 77, 0.14);
-}
-
 .title {
   font-family: 'Discovery', 'Assistant', sans-serif;
   font-weight: 900;
@@ -80,7 +70,7 @@
   font-size: 0.95rem;
   color: #141010;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 6px;
 }
 
@@ -106,12 +96,14 @@
 }
 
 .fieldIcon {
-  width: 18px;
-  height: 18px;
   flex-shrink: 0;
   margin-right: 14px;
-  color: rgba(155, 76, 98, 0.75);
-  pointer-events: none;
+}
+
+.labelIcon {
+  flex-shrink: 0;
+  margin-left: 2px;
+  align-self: center;
 }
 
 .input {
@@ -241,10 +233,7 @@
   box-shadow: 0 6px 16px rgba(60, 30, 35, 0.1);
 }
 
-.uploadIcon svg {
-  width: 22px;
-  height: 22px;
-}
+
 
 .uploadText,
 .previewText {
@@ -307,10 +296,7 @@
   box-shadow: 0 4px 12px rgba(60, 30, 35, 0.1);
 }
 
-.removeFile svg {
-  width: 16px;
-  height: 16px;
-}
+
 
 /* ---------- consent ---------- */
 .consent {
@@ -448,13 +434,12 @@
 }
 
 .submitIcon {
-  width: 20px;
-  height: 20px;
+  transform: rotate(90deg);
   transition: transform 0.3s ease;
 }
 
 .submit:hover .submitIcon {
-  transform: translateX(-4px);
+  transform: rotate(90deg) translateY(4px);
 }
 
 .spinner {
@@ -485,8 +470,6 @@
 }
 
 .trustIcon {
-  width: 14px;
-  height: 14px;
   flex-shrink: 0;
 }
 
@@ -516,11 +499,6 @@
   justify-content: center;
   box-shadow: 0 14px 30px rgba(155, 76, 98, 0.35);
   animation: pop 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.successMark svg {
-  width: 30px;
-  height: 30px;
 }
 
 @keyframes pop {

@@ -1,52 +1,24 @@
 import React, { useRef, useState } from 'react';
 import styles from './LeadForm.module.css';
 import PrivacyPolicy from '../components/privacy/Privacy';
+import LottieIcon from '../components/lottie/LottieIcon';
 import { sendLead, isValidPhone, compressImage } from './leadApi';
 
 const EMPTY = { fullName: '', phone: '', clinic: '', bother: '' };
 
-const Icon = ({ d, className = '' }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
-    {d}
-  </svg>
-);
+// Lordicon animations, loaded lazily (module scope keeps the identity stable).
+const iconName = () => import('../Icons/form-name.json');
+const iconPhone = () => import('../Icons/form-phone.json');
+const iconLocation = () => import('../Icons/form-location.json');
+const iconEdit = () => import('../Icons/form-edit.json');
+const iconCamera = () => import('../Icons/form-camera.json');
+const iconGuarantee = () => import('../Icons/form-guarantee.json');
+const iconHeart = () => import('../Icons/form-heart.json');
+const iconArrow = () => import('../Icons/form-arrow.json');
+const iconRemove = () => import('../Icons/form-remove.json');
 
-const icons = {
-  user: (
-    <>
-      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </>
-  ),
-  phone: (
-    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-  ),
-  camera: (
-    <>
-      <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
-      <circle cx="12" cy="13" r="4" />
-    </>
-  ),
-  check: <path d="M20 6L9 17l-5-5" />,
-  lock: (
-    <>
-      <rect x="3" y="11" width="18" height="11" rx="2" />
-      <path d="M7 11V7a5 5 0 0110 0v4" />
-    </>
-  ),
-  arrow: (
-    <>
-      <path d="M19 12H5" />
-      <path d="M12 19l-7-7 7-7" />
-    </>
-  ),
-  x: (
-    <>
-      <path d="M18 6L6 18" />
-      <path d="M6 6l12 12" />
-    </>
-  ),
-};
+const ACCENT = '#9b4c62';
+const INK = '#141010';
 
 /**
  * Lead form for the /treats page. Rendered several times down the page,
@@ -119,8 +91,8 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
       <div className={styles.card}>
         {status === 'sent' ? (
           <div className={styles.success} role="status">
-            <div className={styles.successMark} aria-hidden="true">
-              <Icon d={icons.check} />
+            <div className={styles.successMark}>
+              <LottieIcon loadIcon={iconHeart} size="44px" colorize="#ffffff" once />
             </div>
             <h3 className={styles.successTitle}>קיבלתי, תודה!</h3>
             <p className={styles.successText}>אחזור אלייך בהקדם לשיחה קצרה ונתאם את הטיפול</p>
@@ -128,7 +100,6 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
         ) : (
           <form className={styles.form} onSubmit={onSubmit} noValidate>
             <div className={styles.head}>
-              <span className={styles.diamond} aria-hidden="true" />
               <h2 className={styles.title}>{title}</h2>
               <p className={styles.subtitle}>{subtitle}</p>
             </div>
@@ -137,7 +108,7 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
               <label className={styles.field}>
                 <span className={styles.label}>שם מלא</span>
                 <span className={`${styles.control} ${errors.fullName ? styles.invalid : ''}`}>
-                  <Icon d={icons.user} className={styles.fieldIcon} />
+                  <LottieIcon loadIcon={iconName} size="22px" colorize={ACCENT} once className={styles.fieldIcon} />
                   <input
                     className={styles.input}
                     type="text"
@@ -155,7 +126,7 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
               <label className={styles.field}>
                 <span className={styles.label}>מספר טלפון</span>
                 <span className={`${styles.control} ${errors.phone ? styles.invalid : ''}`}>
-                  <Icon d={icons.phone} className={styles.fieldIcon} />
+                  <LottieIcon loadIcon={iconPhone} size="22px" colorize={ACCENT} once className={styles.fieldIcon} />
                   <input
                     className={styles.input}
                     type="tel"
@@ -174,7 +145,10 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
             </div>
 
             <fieldset className={`${styles.field} ${styles.fieldset}`}>
-              <legend className={styles.label}>מוכנה להגיע לקליניקה בשכונת אחיסמך החדשה, לוד?</legend>
+              <legend className={styles.label}>
+                <LottieIcon loadIcon={iconLocation} size="20px" colorize={ACCENT} once className={styles.labelIcon} />
+                מוכנה להגיע לקליניקה בשכונת אחיסמך החדשה, לוד?
+              </legend>
               <div className={`${styles.segment} ${errors.clinic ? styles.invalid : ''}`}>
                 {['כן', 'לא'].map((opt) => (
                   <label key={opt} className={`${styles.segmentItem} ${data.clinic === opt ? styles.segmentOn : ''}`}>
@@ -187,7 +161,10 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
             </fieldset>
 
             <label className={styles.field}>
-              <span className={styles.label}>מה הכי מפריע לך בשפתיים היום?</span>
+              <span className={styles.label}>
+                <LottieIcon loadIcon={iconEdit} size="20px" colorize={ACCENT} once className={styles.labelIcon} />
+                מה הכי מפריע לך בשפתיים היום?
+              </span>
               <textarea
                 className={styles.textarea}
                 name="bother"
@@ -211,14 +188,14 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
                     <span>זה יעזור לי להתאים לך את הגוון מראש</span>
                   </div>
                   <button type="button" className={styles.removeFile} onClick={clearFile} disabled={busy} aria-label="הסרת התמונה">
-                    <Icon d={icons.x} />
+                    <LottieIcon loadIcon={iconRemove} size="22px" colorize={INK} once />
                   </button>
                 </div>
               ) : (
                 <label className={styles.upload}>
                   <input ref={fileRef} type="file" accept="image/*" onChange={onFile} disabled={busy} />
                   <span className={styles.uploadIcon}>
-                    <Icon d={icons.camera} />
+                    <LottieIcon loadIcon={iconCamera} size="28px" colorize={ACCENT} once />
                   </span>
                   <span className={styles.uploadText}>
                     <strong>צרפי תמונה של השפתיים</strong>
@@ -232,7 +209,9 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
             <label className={`${styles.consent} ${errors.agreed ? styles.consentError : ''}`}>
               <input type="checkbox" checked={agreed} onChange={() => setAgreed((a) => !a)} disabled={busy} />
               <span className={styles.consentBox} aria-hidden="true">
-                <Icon d={icons.check} />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
               </span>
               <span className={styles.consentText}>
                 קראתי ואני מאשרת את{' '}
@@ -251,13 +230,13 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
               ) : (
                 <>
                   שירן, בואי נדבר
-                  <Icon d={icons.arrow} className={styles.submitIcon} />
+                  <LottieIcon loadIcon={iconArrow} size="24px" colorize="#ffffff" className={styles.submitIcon} />
                 </>
               )}
             </button>
 
             <p className={styles.trust}>
-              <Icon d={icons.lock} className={styles.trustIcon} />
+              <LottieIcon loadIcon={iconGuarantee} size="18px" colorize={INK} once className={styles.trustIcon} />
               שיחה קצרה, בלי התחייבות. הפרטים שלך נשארים אצלי בלבד
             </p>
 

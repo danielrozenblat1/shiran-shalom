@@ -77,47 +77,33 @@
   animation: rise 1.1s var(--ease) 0.45s forwards;
 }
 
-/* three small luxurious "without" elements under the promise */
+/* the three "without" phrases: marker highlight under the words, no box, no shadow */
 .perks {
   position: relative;
   z-index: 1;
   list-style: none;
-  margin: 2px 0 16px;
+  margin: 4px 0 14px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px 12px;
+  gap: 8px 22px;
   max-width: 640px;
 }
 
 .perk {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 18px 11px 20px;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #ffffff 0%, #fbf7f5 100%);
-  box-shadow: 0 14px 30px rgba(60, 30, 35, 0.12), 0 1px 2px rgba(60, 30, 35, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
   font-family: 'Discovery', 'Assistant', sans-serif;
   font-weight: 900;
-  font-size: clamp(1rem, 2.4vw, 1.2rem);
-  line-height: 1.2;
-  color: #141010;
+  font-size: clamp(1.1rem, 2.8vw, 1.45rem);
+  line-height: 1.25;
+  color: var(--accent);
+  background-image: linear-gradient(transparent 60%, rgba(212, 165, 174, 0.55) 60%);
+  padding-inline: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
   white-space: nowrap;
   opacity: 0;
   animation: rise 1s var(--ease) calc(0.6s + var(--i) * 0.12s) forwards;
-}
-
-/* small gold diamond */
-.perk::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  transform: rotate(45deg);
-  background: linear-gradient(135deg, #e9d59c 0%, #c9a24d 55%, #a67c2e 100%);
-  box-shadow: 0 0 0 3px rgba(201, 162, 77, 0.14);
 }
 
 .heroAccent {
@@ -387,7 +373,7 @@
   border: none;
   background: var(--wa);
   color: #fff;
-  font-size: 32px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -520,7 +506,6 @@
   .floatWa {
     width: 56px;
     height: 56px;
-    font-size: 30px;
     bottom: 18px;
     left: 16px;
   }
