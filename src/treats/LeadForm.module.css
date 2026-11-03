@@ -1,5 +1,5 @@
 .wrap {
-  padding: clamp(10px, 2vh, 20px) 16px;
+  padding: 6px 16px clamp(10px, 2vh, 20px);
   display: flex;
   justify-content: center;
   scroll-margin-top: 16px;
