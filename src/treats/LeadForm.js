@@ -5,6 +5,49 @@ import { sendLead, isValidPhone, compressImage } from './leadApi';
 
 const EMPTY = { fullName: '', phone: '', clinic: '', bother: '' };
 
+const Icon = ({ d, className = '' }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
+    {d}
+  </svg>
+);
+
+const icons = {
+  user: (
+    <>
+      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </>
+  ),
+  phone: (
+    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+  ),
+  camera: (
+    <>
+      <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
+      <circle cx="12" cy="13" r="4" />
+    </>
+  ),
+  check: <path d="M20 6L9 17l-5-5" />,
+  lock: (
+    <>
+      <rect x="3" y="11" width="18" height="11" rx="2" />
+      <path d="M7 11V7a5 5 0 0110 0v4" />
+    </>
+  ),
+  arrow: (
+    <>
+      <path d="M19 12H5" />
+      <path d="M12 19l-7-7 7-7" />
+    </>
+  ),
+  x: (
+    <>
+      <path d="M18 6L6 18" />
+      <path d="M6 6l12 12" />
+    </>
+  ),
+};
+
 /**
  * Lead form for the /treats page. Rendered several times down the page,
  * each with its own state. `data-lead-form` lets the sticky CTA find the nearest one.
@@ -77,62 +120,65 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
         {status === 'sent' ? (
           <div className={styles.success} role="status">
             <div className={styles.successMark} aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 6L9 17l-5-5" />
-              </svg>
+              <Icon d={icons.check} />
             </div>
             <h3 className={styles.successTitle}>קיבלתי, תודה!</h3>
             <p className={styles.successText}>אחזור אלייך בהקדם לשיחה קצרה ונתאם את הטיפול</p>
           </div>
         ) : (
           <form className={styles.form} onSubmit={onSubmit} noValidate>
-            <h2 className={styles.title}>{title}</h2>
-            <p className={styles.subtitle}>{subtitle}</p>
+            <div className={styles.head}>
+              <span className={styles.diamond} aria-hidden="true" />
+              <h2 className={styles.title}>{title}</h2>
+              <p className={styles.subtitle}>{subtitle}</p>
+            </div>
 
-            <label className={styles.field}>
-              <span className={styles.label}>שם מלא</span>
-              <input
-                className={`${styles.input} ${errors.fullName ? styles.invalid : ''}`}
-                type="text"
-                name="fullName"
-                autoComplete="name"
-                value={data.fullName}
-                onChange={onChange}
-                placeholder="איך קוראים לך?"
-                disabled={busy}
-              />
-              {errors.fullName && <span className={styles.error}>{errors.fullName}</span>}
-            </label>
+            <div className={styles.row}>
+              <label className={styles.field}>
+                <span className={styles.label}>שם מלא</span>
+                <span className={`${styles.control} ${errors.fullName ? styles.invalid : ''}`}>
+                  <Icon d={icons.user} className={styles.fieldIcon} />
+                  <input
+                    className={styles.input}
+                    type="text"
+                    name="fullName"
+                    autoComplete="name"
+                    value={data.fullName}
+                    onChange={onChange}
+                    placeholder="איך קוראים לך?"
+                    disabled={busy}
+                  />
+                </span>
+                {errors.fullName && <span className={styles.error}>{errors.fullName}</span>}
+              </label>
 
-            <label className={styles.field}>
-              <span className={styles.label}>מספר טלפון</span>
-              <input
-                className={`${styles.input} ${errors.phone ? styles.invalid : ''}`}
-                type="tel"
-                name="phone"
-                inputMode="tel"
-                autoComplete="tel"
-                value={data.phone}
-                onChange={onChange}
-                placeholder="050-0000000"
-                disabled={busy}
-              />
-              {errors.phone && <span className={styles.error}>{errors.phone}</span>}
-            </label>
+              <label className={styles.field}>
+                <span className={styles.label}>מספר טלפון</span>
+                <span className={`${styles.control} ${errors.phone ? styles.invalid : ''}`}>
+                  <Icon d={icons.phone} className={styles.fieldIcon} />
+                  <input
+                    className={styles.input}
+                    type="tel"
+                    name="phone"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    dir="ltr"
+                    value={data.phone}
+                    onChange={onChange}
+                    placeholder="050-0000000"
+                    disabled={busy}
+                  />
+                </span>
+                {errors.phone && <span className={styles.error}>{errors.phone}</span>}
+              </label>
+            </div>
 
             <fieldset className={`${styles.field} ${styles.fieldset}`}>
-              <legend className={styles.label}>האם את מוכנה להגיע לקליניקה שנמצאת בשכונת אחיסמך החדשה, לוד?</legend>
-              <div className={styles.choices}>
+              <legend className={styles.label}>מוכנה להגיע לקליניקה בשכונת אחיסמך החדשה, לוד?</legend>
+              <div className={`${styles.segment} ${errors.clinic ? styles.invalid : ''}`}>
                 {['כן', 'לא'].map((opt) => (
-                  <label key={opt} className={`${styles.choice} ${data.clinic === opt ? styles.choiceOn : ''}`}>
-                    <input
-                      type="radio"
-                      name="clinic"
-                      value={opt}
-                      checked={data.clinic === opt}
-                      onChange={onChange}
-                      disabled={busy}
-                    />
+                  <label key={opt} className={`${styles.segmentItem} ${data.clinic === opt ? styles.segmentOn : ''}`}>
+                    <input type="radio" name="clinic" value={opt} checked={data.clinic === opt} onChange={onChange} disabled={busy} />
                     <span>{opt}</span>
                   </label>
                 ))}
@@ -155,24 +201,29 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
 
             <div className={styles.field}>
               <span className={styles.label}>
-                תמונה של השפתיים <span className={styles.optional}>(לא חובה, עוזר לי להתאים לך את הגוון)</span>
+                תמונה של השפתיים <span className={styles.optional}>לא חובה</span>
               </span>
               {preview ? (
                 <div className={styles.previewRow}>
                   <img src={preview} alt="תצוגה מקדימה של התמונה שצירפת" className={styles.preview} />
-                  <button type="button" className={styles.removeFile} onClick={clearFile} disabled={busy}>
-                    הסרה
+                  <div className={styles.previewText}>
+                    <strong>התמונה צורפה</strong>
+                    <span>זה יעזור לי להתאים לך את הגוון מראש</span>
+                  </div>
+                  <button type="button" className={styles.removeFile} onClick={clearFile} disabled={busy} aria-label="הסרת התמונה">
+                    <Icon d={icons.x} />
                   </button>
                 </div>
               ) : (
                 <label className={styles.upload}>
                   <input ref={fileRef} type="file" accept="image/*" onChange={onFile} disabled={busy} />
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                    <path d="M17 8l-5-5-5 5" />
-                    <path d="M12 3v12" />
-                  </svg>
-                  <span>לחצי לצירוף תמונה</span>
+                  <span className={styles.uploadIcon}>
+                    <Icon d={icons.camera} />
+                  </span>
+                  <span className={styles.uploadText}>
+                    <strong>צרפי תמונה של השפתיים</strong>
+                    <span>עוזר לי להתאים לך את הגוון המדויק</span>
+                  </span>
                 </label>
               )}
               {errors.image && <span className={styles.error}>{errors.image}</span>}
@@ -180,7 +231,10 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
 
             <label className={`${styles.consent} ${errors.agreed ? styles.consentError : ''}`}>
               <input type="checkbox" checked={agreed} onChange={() => setAgreed((a) => !a)} disabled={busy} />
-              <span>
+              <span className={styles.consentBox} aria-hidden="true">
+                <Icon d={icons.check} />
+              </span>
+              <span className={styles.consentText}>
                 קראתי ואני מאשרת את{' '}
                 <span onClick={(e) => e.preventDefault()} className={styles.privacyLink}>
                   <PrivacyPolicy ownerName="שירן שלום" phone="+972 50-936-5362" domain="https://shiranshalomacademy.co.il/" />
@@ -195,9 +249,17 @@ const LeadForm = ({ title = 'רוצה שפתיים שנראות מושלם כל 
                   שולחת...
                 </>
               ) : (
-                'שירן, בואי נדבר'
+                <>
+                  שירן, בואי נדבר
+                  <Icon d={icons.arrow} className={styles.submitIcon} />
+                </>
               )}
             </button>
+
+            <p className={styles.trust}>
+              <Icon d={icons.lock} className={styles.trustIcon} />
+              שיחה קצרה, בלי התחייבות. הפרטים שלך נשארים אצלי בלבד
+            </p>
 
             {status === 'error' && (
               <p className={styles.sendError} role="alert">

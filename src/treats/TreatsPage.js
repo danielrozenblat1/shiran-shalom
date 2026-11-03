@@ -204,11 +204,15 @@ const TreatsPage = () => {
         <div className={styles.heroGlow} aria-hidden="true" />
         <img src={logo} alt="שירן שלום" className={styles.logo} width="586" height="285" />
         <p className={styles.heroIntro}>אם תמיד חשבת לעשות פיגמנט שפתיים, הדף הזה בשבילך</p>
-        <h1 className={styles.heroTitle}>
-          את יכולה להיראות בשיא שלך כל בוקר מחדש
-          <span className={styles.heroTitleSoft}>בלי להתארגן, בלי אודם ובלי תיקונים לאורך היום</span>
-          <span className={styles.heroTitleAccent}>תוך שעתיים בלבד!</span>
-        </h1>
+        <h1 className={styles.heroTitle}>את יכולה להיראות בשיא שלך כל בוקר מחדש</h1>
+        <ul className={styles.perks} aria-label="מה חוסכות">
+          {['בלי להתארגן', 'בלי אודם', 'בלי תיקונים לאורך היום'].map((perk, i) => (
+            <li className={styles.perk} style={{ '--i': i }} key={perk}>
+              {perk}
+            </li>
+          ))}
+        </ul>
+        <p className={styles.heroAccent}>תוך שעתיים בלבד!</p>
         <p className={styles.heroText}>טיפול פיגמנט שפתיים מותאם אישית אלייך, בכל השיטות הכי מתקדמות שיש</p>
       </section>
 
