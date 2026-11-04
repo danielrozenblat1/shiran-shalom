@@ -22,6 +22,11 @@ import ig07 from '../images/פיגמנט שפתיים אינסטגרם 7.webp';
 
 // Testimonials about the treatments (screenshots / collages).
 import review01 from '../images/שירן שלום המלצות.webp';
+import review02 from '../images/שירן שלום המלצות 2.webp';
+import review03 from '../images/שירן שלום המלצות 3.webp';
+import review04 from '../images/שירן שלום המלצות 4.webp';
+import review05 from '../images/שירן שלום המלצות 5.webp';
+import review06 from '../images/שירן שלום המלצות 6.webp';
 
 const resultImages = [ig01, lips01, ig03, ig04, lips02, ig02, ig05, ig06, ig07];
 
@@ -30,7 +35,7 @@ const loadChatIcon = () => import('../Icons/float-chat.json');
 // Before / after clips: [{ src, poster }]. The section renders only when this has items.
 const beforeAfterVideos = [];
 
-const testimonials = [review01];
+const testimonials = [review02, review04, review01, review05, review03, review06];
 
 // ---- helpers -------------------------------------------------------------
 const useReveal = () => {

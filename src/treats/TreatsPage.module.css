@@ -186,9 +186,9 @@
 
 .ribbonItem {
   flex: 0 0 auto;
-  width: clamp(118px, 13vw, 160px);
+  width: clamp(150px, 17vw, 210px);
   aspect-ratio: 1 / 1;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   background: #eadfdc;
   box-shadow: 0 16px 36px rgba(60, 30, 35, 0.12);
@@ -324,16 +324,15 @@
 
 /* ---------- testimonials ---------- */
 .reviews {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 340px));
-  justify-content: center;
-  gap: 18px;
-  width: min(1100px, 92%);
+  columns: 3 260px;
+  column-gap: 18px;
+  width: min(1040px, 92%);
   margin: clamp(16px, 3vh, 30px) auto 0;
 }
 
 .reviewTile {
-  margin: 0;
+  margin: 0 0 18px;
+  break-inside: avoid;
   border-radius: 18px;
   overflow: hidden;
   background: #fff;
@@ -516,7 +515,7 @@
   }
 
   .ribbonItem {
-    width: 124px;
+    width: 156px;
   }
 }
 
@@ -533,7 +532,12 @@
   }
 
   .reviews {
-    grid-template-columns: minmax(0, 340px);
+    columns: 1;
+    width: min(360px, 92%);
+  }
+
+  .reviewTile {
+    margin-bottom: 12px;
   }
 
   .tile {
