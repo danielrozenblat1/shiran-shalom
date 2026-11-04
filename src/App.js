@@ -1,5 +1,6 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense, useEffect, useRef } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { trackPageView } from './treats/pixel';
 import './App.css';
 import FirstScreen from './screens/FirstScreen';
 
@@ -16,6 +17,21 @@ const ByMe = lazy(() => import('./components/ByMe/ByMe'));
 
 // Paid-campaign landing page for lip pigment (/treats) - fully separate chunk.
 const TreatsPage = lazy(() => import('./treats/TreatsPage'));
+const ThankYouPage = lazy(() => import('./treats/ThankYouPage'));
+
+// The pixel in index.html already reports the first PageView; this covers in-app navigations.
+const PixelPageViews = () => {
+  const { pathname } = useLocation();
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    trackPageView();
+  }, [pathname]);
+  return null;
+};
 
 const Home = () => (
   <main>
@@ -38,10 +54,13 @@ const Home = () => (
 function App() {
   return (
     <BrowserRouter>
+      <PixelPageViews />
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/treats" element={<TreatsPage />} />
+          <Route path="/thanks" element={<ThankYouPage />} />
+          <Route path="/תודה" element={<ThankYouPage />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Suspense>

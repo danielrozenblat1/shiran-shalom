@@ -301,36 +301,6 @@
   margin: 0;
 }
 
-/* ---------- success ---------- */
-.success {
-  text-align: center;
-  padding: 10px 0;
-}
-
-.successMark {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 14px;
-  border-radius: 50%;
-  background: #141010;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.successTitle {
-  font-weight: 900;
-  font-size: 1.8rem;
-  margin: 0 0 6px;
-}
-
-.successText {
-  font-weight: 200;
-  font-size: 1.1rem;
-  margin: 0;
-  color: rgba(20, 16, 16, 0.75);
-}
-
 @media (max-width: 480px) {
   .card {
     border-radius: 18px;
