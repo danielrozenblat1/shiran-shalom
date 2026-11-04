@@ -20,6 +20,13 @@ import ig05 from '../images/פיגמנט שפתיים אינסטגרם 5.webp';
 import ig06 from '../images/פיגמנט שפתיים אינסטגרם 6.webp';
 import ig07 from '../images/פיגמנט שפתיים אינסטגרם 7.webp';
 
+// Posters for the embedded Instagram reels (the clips themselves stream from Instagram).
+import reel01 from '../images/ריל פיגמנט שפתיים 1.webp';
+import reel02 from '../images/ריל פיגמנט שפתיים 2.webp';
+import reel03 from '../images/ריל פיגמנט שפתיים 3.webp';
+import reel04 from '../images/ריל פיגמנט שפתיים 4.webp';
+import reel05 from '../images/ריל פיגמנט שפתיים 5.webp';
+
 // Testimonials about the treatments (screenshots / collages).
 import review01 from '../images/שירן שלום המלצות.webp';
 import review02 from '../images/שירן שלום המלצות 2.webp';
@@ -32,8 +39,15 @@ const resultImages = [ig01, lips01, ig03, ig04, lips02, ig02, ig05, ig06, ig07];
 
 const loadChatIcon = () => import('../Icons/float-chat.json');
 
-// Before / after clips: [{ src, poster }]. The section renders only when this has items.
-const beforeAfterVideos = [];
+// Lip pigment reels from Shiran's Instagram, embedded via the official /embed/ page (nothing is downloaded).
+// `id` is the reel shortcode. The section renders only when this has items.
+const reels = [
+  { id: 'DfFtKdkRXBz', poster: reel04 },
+  { id: 'DdrsiSnRDOe', poster: reel02 },
+  { id: 'DYDCiYHuQkr', poster: reel01 },
+  { id: 'DfKx-_JxyW2', poster: reel05 },
+  { id: 'DemlO_DONeS', poster: reel03 },
+];
 
 const testimonials = [review02, review04, review01, review05, review03, review06];
 
@@ -100,10 +114,12 @@ const Ribbon = ({ images, duration = 60, label }) => {
   );
 };
 
-const LazyVideo = ({ src, poster, label }) => {
+// Instagram reel embed. The iframe (and Instagram's scripts) mount only when the tile
+// approaches the viewport; until it has loaded, a lightweight local poster is shown.
+const ReelEmbed = ({ id, poster, label }) => {
   const wrapRef = useRef(null);
-  const videoRef = useRef(null);
   const [inView, setInView] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const node = wrapRef.current;
@@ -118,31 +134,26 @@ const LazyVideo = ({ src, poster, label }) => {
           io.disconnect();
         }
       },
-      { rootMargin: '300px' }
+      { rootMargin: '250px' }
     );
     io.observe(node);
     return () => io.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!inView || !videoRef.current) return;
-    const p = videoRef.current.play();
-    if (p && typeof p.catch === 'function') p.catch(() => {});
-  }, [inView]);
-
   return (
-    <figure className={styles.videoTile} ref={wrapRef}>
-      <video
-        ref={videoRef}
-        src={inView ? src : undefined}
-        poster={poster}
-        aria-label={label}
-        preload="none"
-        loop
-        muted
-        playsInline
-        controls
-      />
+    <figure className={styles.reelTile} ref={wrapRef}>
+      <img src={poster} alt="" className={styles.reelPoster} loading="lazy" decoding="async" draggable="false" aria-hidden={loaded} />
+      {inView && (
+        <iframe
+          className={`${styles.reelFrame} ${loaded ? styles.reelFrameIn : ''}`}
+          src={`https://www.instagram.com/reel/${id}/embed/`}
+          title={label}
+          loading="lazy"
+          allow="encrypted-media; fullscreen"
+          allowFullScreen
+          onLoad={() => setLoaded(true)}
+        />
+      )}
     </figure>
   );
 };
@@ -253,12 +264,17 @@ const TreatsPage = () => {
           ))}
         </div>
 
-        {beforeAfterVideos.length > 0 && (
-          <Reveal className={styles.videoGrid}>
-            {beforeAfterVideos.map((v, i) => (
-              <LazyVideo key={i} src={v.src} poster={v.poster} label={`לפני ואחרי פיגמנט שפתיים ${i + 1}`} />
-            ))}
-          </Reveal>
+        {reels.length > 0 && (
+          <>
+            <Reveal as="p" className={`${styles.subtitle} ${styles.subtitleGap}`}>
+              ובווידאו, ישר מהקליניקה
+            </Reveal>
+            <Reveal className={styles.videoGrid}>
+              {reels.map((r, i) => (
+                <ReelEmbed key={r.id} id={r.id} poster={r.poster} label={`סרטון פיגמנט שפתיים ${i + 1} מהאינסטגרם של שירן שלום`} />
+              ))}
+            </Reveal>
+          </>
         )}
       </section>
 
