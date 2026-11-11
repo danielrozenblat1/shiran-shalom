@@ -19,18 +19,29 @@ const LottieIcon = ({ loadIcon, size = '100%', once = false, hover = true, color
   useEffect(() => {
     let cancelled = false;
 
-    Promise.all([import('@lordicon/react'), loadIcon()])
-      .then(([lib, iconModule]) => {
-        if (cancelled) return;
-        setLoaded({
-          Player: lib.Player,
-          icon: iconModule.default || iconModule,
-        });
-      })
-      .catch(() => {});
+    const load = () =>
+      Promise.all([import('@lordicon/react'), loadIcon()])
+        .then(([lib, iconModule]) => {
+          if (cancelled) return;
+          setLoaded({
+            Player: lib.Player,
+            icon: iconModule.default || iconModule,
+          });
+        })
+        .catch(() => {});
+
+    // Wait for the page's own assets (fonts, hero images) before pulling the
+    // animation runtime, so the icons never compete with the first paint.
+    const start = () => {
+      if ('requestIdleCallback' in window) window.requestIdleCallback(load, { timeout: 2000 });
+      else setTimeout(load, 300);
+    };
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start, { once: true });
 
     return () => {
       cancelled = true;
+      window.removeEventListener('load', start);
     };
   }, [loadIcon]);
 

@@ -4,10 +4,12 @@ import './fonts.css';
 import styles from './ThankYouPage.module.css';
 import LottieIcon from '../components/lottie/LottieIcon';
 import { openWhatsApp } from './leadApi';
-import { redeemLeadTicket } from './pixel';
-import logo from '../images/שירן שלום לוגו.webp';
+import { redeemLeadTicket, trackWhatsAppLead } from './pixel';
 
 const iconHeart = () => import('../Icons/form-heart.json');
+// Served from public/ so index.html can preload it (the hashed import URL is not known up front).
+const logo = '/images/shiran-logo.webp';
+
 const loadChatIcon = () => import('../Icons/float-chat.json');
 
 // /thanks - the only place the Meta "Lead" event fires, and only once per lead.
@@ -35,6 +37,11 @@ const ThankYouPage = () => {
     redeemLeadTicket(location.state && location.state.leadId);
   }, [location.state]);
 
+  const onWhatsApp = () => {
+    trackWhatsAppLead(); // no-op when the form lead was already reported in this visit
+    openWhatsApp();
+  };
+
   return (
     <main className={styles.page} dir="rtl">
       <img src={logo} alt="שירן שלום" className={styles.logo} width="586" height="285" />
@@ -45,7 +52,7 @@ const ThankYouPage = () => {
         <h1 className={styles.title}>קיבלתי, תודה!</h1>
         <p className={styles.text}>הפרטים הגיעו אליי. אחזור אלייך בהקדם לשיחה קצרה ונתאם את הטיפול</p>
         <p className={styles.sub}>רוצה לדבר כבר עכשיו?</p>
-        <button type="button" className={styles.wa} onClick={openWhatsApp}>
+        <button type="button" className={styles.wa} onClick={onWhatsApp}>
           <LottieIcon loadIcon={loadChatIcon} size="26px" colorize="#ffffff" once />
           שירן בוואטסאפ
         </button>

@@ -5,8 +5,8 @@ import LeadForm from './LeadForm';
 import ByMe from '../components/ByMe/ByMe';
 import LottieIcon from '../components/lottie/LottieIcon';
 import { openWhatsApp } from './leadApi';
+import { trackWhatsAppLead } from './pixel';
 
-import logo from '../images/שירן שלום לוגו.webp';
 
 // ---- media ---------------------------------------------------------------
 // Lip pigment results. Add more photos here and they flow into the ribbon and the grid.
@@ -36,6 +36,9 @@ import review05 from '../images/שירן שלום המלצות 5.webp';
 import review06 from '../images/שירן שלום המלצות 6.webp';
 
 const resultImages = [ig01, lips01, ig03, ig04, lips02, ig02, ig05, ig06, ig07];
+
+// Served from public/ so index.html can preload it (the hashed import URL is not known up front).
+const logo = '/images/shiran-logo.webp';
 
 const loadChatIcon = () => import('../Icons/float-chat.json');
 
@@ -102,6 +105,7 @@ const Ribbon = ({ images, duration = 60, label }) => {
                   src={src}
                   alt={group === 0 ? `${label} ${(i % images.length) + 1}` : ''}
                   loading={i < 5 ? 'eager' : 'lazy'}
+                  fetchpriority="low"
                   decoding="async"
                   draggable="false"
                 />
@@ -222,12 +226,18 @@ const TreatsPage = () => {
     return () => io.disconnect();
   }, []);
 
+  // A WhatsApp click is a lead too; the pixel helper makes sure one visit reports at most one Lead.
+  const onWhatsApp = () => {
+    trackWhatsAppLead();
+    openWhatsApp();
+  };
+
   return (
     <main className={styles.page} dir="rtl">
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroGlow} aria-hidden="true" />
-        <img src={logo} alt="שירן שלום" className={styles.logo} width="586" height="285" />
+        <img src={logo} alt="שירן שלום" className={styles.logo} width="586" height="285" fetchpriority="high" decoding="async" />
         <p className={styles.heroIntro}>אם תמיד חשבת לעשות פיגמנט שפתיים, הדף הזה בשבילך</p>
         <h1 className={styles.heroTitle}>את יכולה להיראות בשיא שלך כל בוקר מחדש</h1>
         <ul className={styles.perks} aria-label="מה חוסכות">
@@ -302,7 +312,7 @@ const TreatsPage = () => {
       </footer>
 
       {/* FLOATING WHATSAPP */}
-      <button type="button" className={styles.floatWa} onClick={openWhatsApp} aria-label="פנייה בוואטסאפ">
+      <button type="button" className={styles.floatWa} onClick={onWhatsApp} aria-label="פנייה בוואטסאפ">
         <span className={styles.floatPulse} aria-hidden="true" />
         <LottieIcon loadIcon={loadChatIcon} size="32px" colorize="#ffffff" />
       </button>

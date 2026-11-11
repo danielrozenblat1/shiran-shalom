@@ -9,8 +9,46 @@
     <link rel="preconnect" href="https://cdn.enable.co.il" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://cdn.enable.co.il" />
-    <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
+    <link rel="dns-prefetch" href="https://connect.facebook.net" />
     <link rel="dns-prefetch" href="https://www.clarity.ms" />
+
+    <!-- Discovery (used by /treats and /thanks). Declared here, next to its preload. -->
+    <style>
+      @font-face {
+        font-family: 'Discovery';
+        src: url('/fonts/Discovery_Fs-Black.woff2') format('woff2');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Discovery';
+        src: url('/fonts/Discovery_Fs-Thin.woff2') format('woff2');
+        font-weight: 200;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+
+    <!-- /treats and /thanks: fetch the Discovery fonts and the logo right away, instead of
+         waiting for the JS bundle -> route chunk -> CSS chain to discover them. -->
+    <script>
+      (function () {
+        var p = location.pathname;
+        if (!/^\/(treats|thanks|%D7%AA%D7%95%D7%93%D7%94)\/?$/.test(p)) return;
+        [
+          ['/fonts/Discovery_Fs-Black.woff2', 'font', 'font/woff2'],
+          ['/fonts/Discovery_Fs-Thin.woff2', 'font', 'font/woff2'],
+          ['/images/shiran-logo.webp', 'image', 'image/webp']
+        ].forEach(function (a) {
+          var l = document.createElement('link');
+          l.rel = 'preload'; l.href = a[0]; l.as = a[1]; l.type = a[2];
+          if (a[1] === 'font') l.crossOrigin = 'anonymous';
+          else l.fetchPriority = 'high';
+          document.head.appendChild(l);
+        });
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>קורס הדבקת ריסים ופיגמנט שפתיים | האקדמיה של שירן שלום</title>
@@ -383,15 +421,16 @@
       gtag('config', 'G-2QRBTMN110');
     </script>
     <script defer src="https://cdn.enable.co.il/licenses/enable-L231329s3li1y4qd-1223-67958/init.js"></script>
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code (stub + queue now, the 400KB library itself after window load) -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
+      n.queue=[];var load=function(){t=b.createElement(e);t.async=!0;
       t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      s.parentNode.insertBefore(t,s)};
+      b.readyState==='complete'?load():f.addEventListener('load',load)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '28535507549412737');
       fbq('track', 'PageView');
@@ -401,12 +440,13 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <!-- Microsoft Clarity -->
+    <!-- Microsoft Clarity (same idea: queue now, script after window load) -->
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        var load=function(){t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);};
+        l.readyState==='complete'?load():c.addEventListener('load',load);
       })(window, document, "clarity", "script", "z8e7bv2lhw");
     </script>
   </head>

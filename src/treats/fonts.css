@@ -1,15 +1,3 @@
-@font-face {
-  font-family: 'Discovery';
-  src: url('../fonts/Discovery_Fs-Black.woff2') format('woff2');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Discovery';
-  src: url('../fonts/Discovery_Fs-Thin.woff2') format('woff2');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
+/* The Discovery @font-face rules live in public/index.html (same place as their preload),
+   because CRA cannot resolve absolute /fonts/ urls from CSS. This file is kept so the
+   treats pages still have one place to import "fonts" from. */
