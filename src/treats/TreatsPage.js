@@ -34,6 +34,8 @@ import review03 from '../images/שירן שלום המלצות 3.webp';
 import review04 from '../images/שירן שלום המלצות 4.webp';
 import review05 from '../images/שירן שלום המלצות 5.webp';
 import review06 from '../images/שירן שלום המלצות 6.webp';
+import review07 from '../images/שירן שלום המלצות 7.webp';
+import review08 from '../images/שירן שלום המלצות 8.webp';
 
 const resultImages = [ig01, lips01, ig03, ig04, lips02, ig02, ig05, ig06, ig07];
 
@@ -52,7 +54,7 @@ const reels = [
   { id: 'DemlO_DONeS', poster: reel03 },
 ];
 
-const testimonials = [review02, review04, review01, review05, review03, review06];
+const testimonials = [review02, review08, review04, review01, review07, review05, review03, review06];
 
 // ---- helpers -------------------------------------------------------------
 const useReveal = () => {
